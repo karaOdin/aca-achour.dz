@@ -71,7 +71,7 @@
 									<div class="b-contacts__address-info-main-item">
 										<span class="fa fa-home"></span>
 										ADDRESS
-										<p> CITÉ ELHEBAL LOCAL N° 03, HAMMAM DALAA.</p>
+										<p> {{setting('general-info.admin_adress')}}.</p>
 									</div>
 									<div class="b-contacts__address-info-main-item">
 										<div class="row">
@@ -80,7 +80,7 @@
 												Tel
 											</div>
 											<div class="col-lg-9 col-md-8 col-xs-12">
-												<em> +213-561-66-54-40</em>
+												<em> {{setting('general-info.admin_tel')}}.</em>
 											</div>
 										</div>
 									</div>
@@ -91,7 +91,7 @@
 												Fax
 											</div>
 											<div class="col-lg-9 col-md-8 col-xs-12">
-												<em>+213-561-66-54-40</em>
+												<em>{{setting('general-info.admin_fax')}}.</em>
 											</div>
 										</div>
 									</div>
@@ -102,7 +102,7 @@
 												Email
 											</div>
 											<div class="col-lg-9 col-md-8 col-xs-12">
-												<em>tayoub.walid@acachour.com</em>
+												<em>{{setting('general-info.admin_email')}}.</em>
 											</div>
 										</div>
 									</div>

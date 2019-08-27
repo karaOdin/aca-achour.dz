@@ -3,17 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Traits\Resizable;
 
 
 class Product extends Model
 {
+	    use Resizable;
+
     public function category()
     {
-    	return $this->belongs(Category::class);
+    	return $this->belongsTo(Category::class);
     }
 
-    public function activity()
-    {
-    	return $this->belongs(Activity::class);
-    }
+    
 }

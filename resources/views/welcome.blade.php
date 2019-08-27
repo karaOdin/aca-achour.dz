@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+<style type="text/css">
+
+    .b-featured__item .m-premium 
+    {
+        right:183px;
+    }
+</style>
 <section class="b-slider"> 
             <div id="carousel" class="slide carousel carousel-fade">
                 <div class="carousel-inner">
@@ -46,7 +53,7 @@
             </div>
         </section><!--b-slider-->
 
-        <section class="b-search">
+       <!-- <section class="b-search">
             <div class="container">
                 <form action="listings.html" method="POST" class="b-search__main">
                     <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
@@ -385,24 +392,26 @@
                     </div>
                 </form>
             </div>
-        </section><!--b-search-->
+        </section>b-search-->
 
         <section class="b-featured">
             <div class="container">
-                <h2 class="s-title wow zoomInUp" data-wow-delay="0.3s">Featured Vehicles</h2>
+                <h2 class="s-title wow zoomInUp" data-wow-delay="0.3s">Produits Présentés</h2>
                 <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="4" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-tablet-small="2">
+                    @foreach($products as $product)
                     <div>
                         <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
-                            <a href="detail.html">
-                                <img src="/media/186x113/mers.jpg" alt="mers" />
-                                <span class="m-premium">Premium</span>
+                            <a href="{{route('products.show', $product->slug)}}">
+                                <img src="/storage/{{$product->main_image}}" style="width: 186px;height: 113px" alt="mers" />
+                                <span class="m-leasing">New</span>
+                                <span class="m-premium">%{{$product->discount_value}}</span>
                             </a>
                             <div class="b-featured__item-price">
-                                $184,900
+                                DA {{$product->price *( 100 - $product->discount_value)/100}}
                             </div>
                             <div class="clearfix"></div>
-                            <h5><a href="detail.html">MERCEDES-AMG GT / GT S</a></h5>
-                            <div class="b-featured__item-count"><span class="fa fa-tachometer"></span>35,000 KM</div>
+                            <h5><a href="{{route('products.show', $product->slug)}}">{{$product->name}}</a></h5>
+                            <div class="b-featured__item-count"><span class="fa fa-list-alt"></span><a href="{{route('products.index', ['category'=>$product->category->slug])}}">{{$product->category->name}}</a></div>
                             <div class="b-featured__item-links">
                                 <a href="#">Used</a>
                                 <a href="#">2014</a>
@@ -412,7 +421,8 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    @endforeach
+                   <!-- <div>
                         <div class="b-featured__item wow rotateIn" data-wow-delay="0.3s" data-wow-offset="150">
                             <a href="detail.html">
                                 <img src="/media/186x113/audi.jpg" alt="audi" />
@@ -554,7 +564,7 @@
                                 <a href="#">Petrol</a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section><!--b-featured-->

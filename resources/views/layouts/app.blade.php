@@ -65,13 +65,13 @@
                     <div class="col-md-4 col-xs-6">
                         <div class="b-topBar__addr">
                             <span class="fa fa-map-marker"></span>
-                            Cité Elhebal Local N° 03, Hammam Dalaa.
+                            {{setting('general-info.admin_adress')}}.
                         </div>
                     </div>
                     <div class="col-md-2 col-xs-6">
                         <div class="b-topBar__tel">
                             <span class="fa fa-phone"></span>
-                            +213 561 66 54 40 
+                            {{setting('general-info.admin_tel')}}. 
                         </div>
                     </div>
                    
@@ -109,6 +109,16 @@
                                     <li><a href="article.html">Services</a></li>
                                     
                                     <li><a href="{{route('products.index')}}">Shop</a></li>
+
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle='dropdown' href="#">Activities <span class="fa fa-caret-down"></span></a>
+                                        <ul class="dropdown-menu h-nav">
+                                            @foreach($bars as $actbar)
+                                            <li><a href="{{route('products.index',['activity'=>$actbar->slug])}}">{{$actbar->name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+
                                     <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </div>
@@ -218,19 +228,19 @@
                             <p>CONTACTEZ NOUS</p>
                             <div class="b-info__contacts-item">
                                 <span class="fa fa-map-marker"></span>
-                                <em> CITÉ ELHEBAL LOCAL N° 03, HAMMAM DALAA, M'sila, DZ.</em>
+                                <em> {{setting('general-info.admin_adress')}}.</em>
                             </div>
                             <div class="b-info__contacts-item">
                                 <span class="fa fa-phone"></span>
-                                <em>Phone:  +213 561 66 54 40</em>
+                                <em>Phone:  {{setting('general-info.admin_tel')}}</em>
                             </div>
                             <div class="b-info__contacts-item">
                                 <span class="fa fa-fax"></span>
-                                <em>FAX:  +213 561 66 54 40</em>
+                                <em>FAX: {{setting('general-info.admin_fax')}}</em>
                             </div>
                             <div class="b-info__contacts-item">
                                 <span class="fa fa-envelope"></span>
-                                <em>Email:  tayoub.walid@acachour.com</em>
+                                <em>Email:  {{setting('general-info.admin_email')}}</em>
                             </div>
                         </address>
                         <address class="b-info__map">

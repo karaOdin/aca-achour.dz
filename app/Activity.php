@@ -7,8 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
-    public function products()
+    	public function products()
  	   {
- 	   	 return $this->hasMany(Product::class);  
+ 	   	 return $this->hasManyThrough(Product::class,
+ 	   	 	Category::class,
+ 	   	 	'activity_id',
+ 	   	 	'category_id',
+ 	   	 	'id',
+ 	   	 	'id'
+ 	   	 ); 
+
+ 	   	 							 
  	   } 
+
+ 	   public function categories()
+ 	   {
+ 	   	 return $this->hasMany(Category::class);  
+ 	   } 
+
 }

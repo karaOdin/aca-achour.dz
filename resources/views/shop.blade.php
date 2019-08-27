@@ -180,8 +180,9 @@
 								</div>
 								<div class="b-infoBar__select-one">
 									<span class="b-infoBar__select-one-title">SORT BY</span>
-									<select name="select2" class="m-select">
-										<option value="" selected="">Last Added</option>
+									<select name="select2" class="m-select"  onchange="location= this.value;">
+										<option value="" selected="">Filtere par</option>
+										<option value="{{route('products.index',['sort'=>request()->activity ,'sort'=>'newest'])}}" >Newest</option>
 									</select>
 									<span class="fa fa-caret-down"></span>
 								</div>
@@ -204,8 +205,11 @@
 										<div class="b-items__aside-main-body-item">
 											<label>CHOISIR UNE MARQUE</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Toute marque</option>
+												<select name="select1" class="m-select" onchange="location = this.value;">
+													<option value="{{url('products')}}" selected="">Toute marque</option>
+													@foreach($categories as $category)
+													<option value="{{route('products.index', ['category' => $category->slug])}}" >{{$category->name}}</option>
+													@endforeach
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>

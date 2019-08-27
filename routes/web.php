@@ -1,5 +1,6 @@
 <?php
-
+use App\Activity;
+use App\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +12,15 @@
 |
 */
 Route::get('/', function () {
+	$activities = DB::table('activities')
+				->where('activities.show_slider','=','on')
+				->get();
 	$oneprod = DB::table('products')
 				->first();
-    return view('welcome',compact('oneprod'));
+    $products = Product::where('newest','=','on')->get();
+
+    return view('welcome',compact('oneprod','activities','products'));
+
 });
 
 Route::get('/about', function () {
