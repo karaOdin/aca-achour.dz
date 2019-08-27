@@ -6,6 +6,8 @@
     {
         right:183px;
     }
+
+
 </style>
 <section class="b-slider"> 
             <div id="carousel" class="slide carousel carousel-fade">
@@ -404,11 +406,22 @@
                             <a href="{{route('products.show', $product->slug)}}">
                                 <img src="/storage/{{$product->main_image}}" style="width: 186px;height: 113px" alt="mers" />
                                 <span class="m-leasing">New</span>
+                                @if($product->discount == 'On')
                                 <span class="m-premium">%{{$product->discount_value}}</span>
+                                @endif
                             </a>
+                            @if($product->discount == 'On')
                             <div class="b-featured__item-price">
                                 DA {{$product->price *( 100 - $product->discount_value)/100}}
                             </div>
+                            <div style="margin: 5px">
+                                <del><h2>DA {{$product->price}}</h2> </del>
+                            </div>
+                            @else
+                            <div class="b-featured__item-price">
+                                DA {{$product->price}}
+                            </div>
+                            @endif
                             <div class="clearfix"></div>
                             <h5><a href="{{route('products.show', $product->slug)}}">{{$product->name}}</a></h5>
                             <div class="b-featured__item-count"><span class="fa fa-list-alt"></span><a href="{{route('products.index', ['category'=>$product->category->slug])}}">{{$product->category->name}}</a></div>
