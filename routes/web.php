@@ -44,3 +44,8 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Projetcts
+
+Route::get('/projects', 'ProjectController@index')->name('projects.index');
