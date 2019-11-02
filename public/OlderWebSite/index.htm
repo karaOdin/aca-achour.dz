@@ -1,0 +1,3749 @@
+﻿
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+<meta name="Abstract" content="">
+<meta name="Author" content="ACA ACHOUR">
+<meta name="Copyright" content="ACA ACHOUR">
+<meta name="Description" content="ACA ACHOUR Web Sitesi , ACA ACHOUR, aca-achour.dz">
+<link rel="shortcut icon" type="" href="">
+<meta property="og:title" content="aca-achour.dz"> 
+<meta property="og:type" content="website">
+<meta name="Language" content="dz">
+<meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+<meta name="keywords" content="aca, aca achour, ACA, ACA ACHOUR, iveco, renault, ival spa, ival, algeria, alger, m'sila, msila">
+<title>| ACA ENTERPRISES</title>
+<link href="js\jquery\css\css.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js\jquery\jquery.js"></script>
+<script type="text/javascript" src="js\jquery\jquery-ui.js"></script>
+<script type="text/javascript" src="js\jquery\touch.js"></script>
+<script type="text/javascript"> 
+var popupScrollTop=0;
+var formdurum=1;	
+var SiteMinWidth=0;SiteMinWidth=320;
+var SiteMaxWidth=0;SiteMaxWidth=1200;
+var SiteWidth=0;
+var WW=parseInt($(window).width());	
+var WH=parseInt($(window).height());
+
+
+function WindowCalc(){
+WW=parseInt($(window).width());	
+WH=parseInt($(window).height());
+if(WW>SiteMaxWidth){WW=SiteMaxWidth};
+if(WW<SiteMinWidth){WW=SiteMinWidth};
+if(SiteWidth>0){WW=SiteWidth}	
+}
+
+function LoadingStart(){
+$("div.loadingpop").fadeIn();	
+}
+
+$(window).load(function(){$( document ).tooltip();});
+$(document).ready(function(){sayfaAyar();scrollContentReady();scrollContentScroll();});	
+$(window).scroll(function(){scrollContentScroll();});
+
+function sayfaAyar(){
+var OrtaW=SiteMaxWidth;
+WW=parseInt($(window).width());	
+if(WW<=1024){OrtaW=WW;}	
+$("div.orta.siteortala").css({"width":""+OrtaW+"px","margin":"0 auto"});		
+$("div.anasayfa.siteortala").css({"width":""+OrtaW+"px","margin":"0 auto"});	
+}	
+
+
+function getAllCss(obj){
+var attr = ['font-family','font-size','font-weight','font-style','color',
+	'text-transform','text-decoration','letter-spacing','word-spacing',
+	'line-height','text-align','vertical-align','direction','background-color',
+	'background-image','background-repeat','background-position',
+	'background-attachment','opacity','width','height','top','right','bottom',
+	'left','margin-top','margin-right','margin-bottom','margin-left',
+	'padding-top','padding-right','padding-bottom','padding-left',
+	'border-top-width','border-right-width','border-bottom-width',
+	'border-left-width','border-top-color','border-right-color',
+	'border-bottom-color','border-left-color','border-top-style',
+	'border-right-style','border-bottom-style','border-left-style','position',
+	'display','visibility','z-index','overflow-x','overflow-y','white-space',
+	'clip','float','clear','cursor','list-style-image','list-style-position',
+	'list-style-type','marker-offset'];	
+
+var sonuc="";
+for(var i=0;i<attr.length;i++){
+var css=obj.css(attr[i]);	
+if(css!="undefined"){sonuc=sonuc+attr[i]+":"+css+";"}	
+}	
+return sonuc;	
+}
+
+
+var scrollContentOffDiv="<div class='scrollContentOffDiv'><div class='panel left'><div class='ic'></div></div><div class='panel right'><div class='ic'></div></div><div class='scrollContentOffDivBack'></div><div class='scrollContentOffDivLoading'></div></div>";
+function scrollContentReady(){
+$(".scrollContent").each(function(index, element) {
+$(this).prepend(scrollContentOffDiv);    
+});	
+}
+
+function scrollContentScroll(){
+var WH=parseInt($(window).height());		
+var ScrollTopNow=parseInt($(window).scrollTop())+WH;
+$(".scrollContent").each(function(index, element) {
+var OffsetThis=$(this).offset();
+var OffsetTopThis=OffsetThis.top;
+var HeightThis=parseInt($(this).outerHeight());
+var H5=parseInt(WH/6);
+if(HeightThis<H5){H5=parseInt((HeightThis/3)*2);}
+var AnimationStartTop=H5 + OffsetTopThis;
+if(ScrollTopNow>AnimationStartTop){
+$(this).find("div.scrollContentOffDiv div.scrollContentOffDivLoading").fadeOut(500);	
+$(this).find("div.scrollContentOffDiv div.panel").animate({"width":"hide"},800);
+$(this).find("div.scrollContentOffDiv").delay(300).fadeOut(800);
+}
+});	
+}
+			
+function isNumeric(sText){var ValidChars = "0123456789.,";var IsNumber=true;var Char;for (i = 0; i < sText.length && IsNumber == true; i++) { Char = sText.charAt(i); if (ValidChars.indexOf(Char) == -1) {IsNumber = false;}}return IsNumber;}
+function isnumeric(sText){var ValidChars = "0123456789.,";var IsNumber=true;var Char;for (i = 0; i < sText.length && IsNumber == true; i++) { Char = sText.charAt(i); if (ValidChars.indexOf(Char) == -1) {IsNumber = false;}}return IsNumber;}
+function Left(str, n){if (n <= 0)return "";else if (n > String(str).length)return str ; else return String(str).substring(0,n);}
+function Right(str, n){if (n <= 0)return "";else if (n > String(str).length)return str;else {var iLen = String(str).length;return String(str).substring(iLen, iLen - n);}}   
+function FormatNumber(nStr) {nStr += '';c = nStr.split('.');nStr = c.join(''); x = nStr.split(',');x1 = x[0];x2 = x.length > 1 ? ',' + x[1] : '';var rgx = /(\d+)(\d{3})/;while (rgx.test(x1)) {x1 = x1.replace(rgx, '$1' + '.' + '$2');}return x1 + x2.substring(0,3);}
+function validatedate(gelen)  {  var dateformat = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;  if(gelen.match(dateformat))  {  var opera1 = gelen.split('/');  var opera2 = gelen.split('-');  lopera1 = opera1.length;  lopera2 = opera2.length;  if (lopera1>1)  {  var pdate = gelen.split('/');  }  else if (lopera2>1)  {  var pdate = gelen.split('-');  }  var mm  = parseInt(pdate[0]);  var dd = parseInt(pdate[1]);  var yy = parseInt(pdate[2]);  var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];  if (mm==1 || mm>2)  {  if (dd>ListofDays[mm-1])  {  return false;  }  }  if (mm==2)  {  var lyear = false;if ( (!(yy % 4) && yy % 100) || !(yy % 400))   {  lyear = true;  }  if ((lyear==false) && (dd>=29))  {  return false;  }  if ((lyear==true) && (dd>29))  {  return false; }}}else{return false;}  }     
+
+			
+
+</script>
+
+<style>
+
+@font-face {
+    font-family: "meta";
+    src: url('/fonts/exoblack/meta.eot');
+    src: url('/fonts/exoblack/meta.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/exoblack/meta.woff') format('woff'),
+         url('/fonts/exoblack/meta.ttf') format('truetype'),
+         url('/fonts/exoblack/meta.svg#exoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: "ecoblack";
+    src: url('fonts/exoblack/exoblack.eot');
+    src: url('/fonts/exoblack/exoblack.eot?#iefix') format('embedded-opentype'),
+         url('fonts/exoblack/exoblack.woff') format('woff'),
+         url('fonts/exoblack/exoblack.hxd') format('truetype'),
+         url('fonts/exoblack/exoblack.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: "exo";
+    src: url('fonts/exo/exo.eot');
+    src: url('/fonts/exo/exo.eot?#iefix') format('embedded-opentype'),
+         url('fonts/exo/exo.woff') format('woff'),
+         url('fonts/exo/exo.hxd') format('truetype'),
+         url('fonts/exo/exo.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: "exodemibold";
+    src: url('fonts/exodemibold/exodemibold.eot');
+    src: url('/fonts/exodemibold/exodemibold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/exodemibold/exodemibold.woff') format('woff'),
+         url('fonts/exodemibold/exodemibold.hxd') format('truetype'),
+         url('fonts/exodemibold/exodemibold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: "bebas";
+    src: url('fonts/bebas/bebasneue-netvizyon.eot');
+    src: url('/fonts/bebas/bebasneue-netvizyon.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/bebas/bebasneue-netvizyon.woff2') format('woff2'),
+         url('fonts/bebas/bebasneue-netvizyon.woff') format('woff'),
+         url('fonts/bebas/bebasneue-netvizyon.hxd') format('truetype'),
+         url('fonts/bebas/bebasneue-netvizyon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: "champagne";
+    src: url('fonts/champagne/champagne-netvizyon.eot');
+    src: url('/fonts/champagne/champagne-netvizyon.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/champagne/champagne-netvizyon.woff2') format('woff2'),
+         url('fonts/champagne/champagne-netvizyon.woff') format('woff'),
+         url('fonts/champagne/champagne-netvizyon.hxd') format('truetype'),
+         url('fonts/champagne/champagne-netvizyon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: "fontawesome";
+    src: url('fonts/fontawesome/fontawesome-netvizyon.eot');
+    src: url('/fonts/fontawesome/fontawesome-netvizyon.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/fontawesome/fontawesome-netvizyon.woff2') format('woff2'),
+         url('fonts/fontawesome/fontawesome-netvizyon.woff') format('woff'),
+         url('fonts/fontawesome/fontawesome-netvizyon.hxd') format('truetype'),
+         url('fonts/fontawesome/fontawesome-netvizyon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: "upbolters";
+    src: url('fonts/upbolters/upbolters-netvizyon.eot');
+    src: url('/fonts/upbolters/upbolters-netvizyon.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/upbolters/upbolters-netvizyon.woff2') format('woff2'),
+         url('fonts/upbolters/upbolters-netvizyon.woff') format('woff'),
+         url('fonts/upbolters/upbolters-netvizyon.hxd') format('truetype'),
+         url('fonts/upbolters/upbolters-netvizyon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: "upboltersItalic";
+    src: url('fonts/upbolters/upbolters-italic-netvizyon.eot');
+    src: url('/fonts/upbolters/upbolters-italic-netvizyon.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/upbolters/upbolters-italic-netvizyon.woff2') format('woff2'),
+         url('fonts/upbolters/upbolters-italic-netvizyon.woff') format('woff'),
+         url('fonts/upbolters/upbolters-italic-netvizyon.hxd') format('truetype'),
+         url('fonts/upbolters/upbolters-italic-netvizyon.svg') format('svg');
+    font-weight: normal;
+    font-style:italic;
+
+}
+</style>
+
+<style>
+.arial{font-family:Arial !important;}
+.thoma{font-family:Tahoma !important;}
+.bebas{font-family: 'bebas' !important;}
+.fontawesome{font-family: 'fontawesome' !important;}
+.champagne{font-family: 'champagne' !important;}
+.upbolters{font-family:'upbolters' !important;}
+.exo{font-family:'exo',Arial !important;}
+.exoblack{font-family:'exoblack' !important;}
+.exodemibold{font-family:'exodemibold',"Arial Black",Arial !important;}
+
+a{text-decoration:none;}
+body{
+font-family:Arial;
+padding:0px;
+margin:0px;
+font-size:12px;
+color:#444;
+background-color:#262a2d;
+background-color:#FFFFFF;
+min-width:320px;
+min-width:320px;
+max-width:2000px;
+margin:0 auto;
+overflow-x:hidden;
+}
+img{border:none;}
+.fl{float:left}
+.fr{float:right}
+.cl{clear:both;}
+.cantselect{
+-moz-user-select:-moz-none;
+-moz-user-select:none;
+-o-user-select:none;
+-khtml-user-select:none;
+-webkit-user-select:none;
+-ms-user-select:none;
+user-select:none;
+}
+.gizli{display:none;}
+.siteortala{
+max-width:1200px;
+margin:0 auto;
+}
+.textortala{ text-align:center !important;}
+div.main{}
+div.scrollContentOffDiv{
+position:absolute;
+top:0px;bottom:0px;left:0px;right:0px;
+z-index:999;
+}
+div.scrollContentOffDiv div.scrollContentOffDivBack{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	z-index:1;
+	background-color:#FFFFFF;
+	opacity:0.7;
+	}
+div.scrollContentOffDiv div.scrollContentOffDivLoading{
+	position:absolute;
+	top:20px;bottom:0px;left:0px;right:0px;
+	z-index:3;
+	background-image:url(img/genel/loading-mavi.gif);
+	background-position:top center;
+	background-repeat:no-repeat;
+	background-size:20px auto;
+	}		
+div.scrollContentOffDiv div.panel{
+	top:0px;
+	bottom:0px;
+	width:50%;
+	position:absolute;
+	background-color:#FFFFFF;
+	z-index:2;
+	}
+div.scrollContentOffDiv div.panel div.ic{}		
+div.scrollContentOffDiv div.panel.left{left:0px;float:left;}
+div.scrollContentOffDiv div.panel.right{right:0px;float:right;}
+
+
+div.coverdiv{
+position:fixed;
+top:0px;bottom:0px;left:0px;right:0px;
+}
+
+</style>
+<script>
+//start document.ready
+$(document).ready(function(e){
+    
+});
+//end document.ready
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79841840-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<style>
+div.main{opacity:0.1;}
+div.loadingpop{
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	opacity:0.5;
+	z-index:99999;
+	position:fixed;
+	
+	}	
+div.pop{display:none;}
+div.popback{
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	opacity:0.95;
+	z-index:99998;
+	position:fixed;
+	background-image:url(img/genel/loading-mavi.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:20px auto;
+	}
+	
+div.pop div.ic{display:none;}	
+	
+		
+div.popresims{
+	width:75%;
+	position:fixed;
+	z-index:100000;
+	}
+
+div.popresims.ic{
+	max-width:1000px;
+	}	
+
+div.popresims div.gosterme{} 
+	
+div.popresims div.anaresim{
+	position:relative;
+	z-index:7;
+	cursor:pointer;
+	}
+div.popresims div.anaresim div.res{
+top:0px;bottom:0px;left:0px;right:0px;
+background-color:#fff;
+z-index:8;
+}	
+	
+div.popresims div.anaresim div.res img{
+	width:100%;
+	height:auto;
+	}
+	
+div.popresims div.anaresim div.anaresimback{
+top:0px;bottom:0px;left:0px;right:0px;
+background-color:#fff;
+opacity:0.1;
+z-index:1;
+}	
+
+	
+div.ic div.kapat{
+	width:40px;
+	height:40px;
+	background-color:#fff;
+	opacity:0.8;
+	position:absolute;
+	right:0px;
+	top:0px;
+	z-index:101;
+	cursor:pointer;
+	}
+div.ic div.kapat div.icon{
+	width:40px;
+	height:40px;
+	background-color:#fff;
+	line-height:40px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#453F3F;
+	}
+div.ic div.kapat:hover div.icon{
+	background-color:#fff;
+	}		
+div.ic div.kapat:hover{		
+-webkit-box-shadow: 0px 0px 19px 0px rgba(50, 50, 50, 1);
+-moz-box-shadow:    0px 0px 19px 0px rgba(50, 50, 50, 1);
+box-shadow:         0px 0px 19px 0px rgba(50, 50, 50, 1);
+}
+div.popresims div.anaresim.boyut{
+	/*background-image:url(img/genel/loading-mavi.gif);
+	background-size:50px auto;
+	background-position:center;
+	background-repeat:no-repeat;*/
+	background-color:#ebebeb;
+	}
+div.popresims div.anaresim.maxboyut{
+	overflow:auto;
+	overflow-x:hidden;
+	}
+
+	
+div.popresims div.buttons{
+	position:absolute;
+	bottom:0px;top:0px;left:0px;right:0px;
+	}
+	
+div.popresims div.buttons div.toolbar{
+	position:absolute;
+	bottom:-30px;
+	left:0px;
+	right:0px;
+	z-index:999;
+	height:30px;
+	display:none;
+	}	
+div.popresims div.buttons div.toolbar div.tool{
+	height:20px;
+	width:20px;
+	margin-top:5px;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:10px auto;
+	position:relative;
+	z-index:2;
+	cursor:pointer;
+	}
+div.popresims div.buttons div.toolbar div.tool.pasif{opacity:0.3;}	
+div.popresims div.buttons div.toolbar div.tool svg{}	
+div.popresims div.buttons div.toolbar div.tool.load{
+	color:#666;
+	font-size:10px;
+	line-height:20px;
+	margin-right:5px;
+	float:right;
+	border:1px solid #555;
+	border-radius:40px;
+	text-align:center;
+	margin-top:4px;
+	height:19px;
+	width:19px;
+	display:none;
+	}
+div.popresims div.buttons div.toolbar div.tool.play{background-image:url(img/genel/icon-play.png);margin:5px;}	
+div.popresims div.buttons div.toolbar div.tool.stop{background-image:url(img/genel/icon-stop.png);}
+div.popresims div.buttons div.toolbar div.tool div.toolback{
+	top:0px;bottom:0px;left:0px;right:0px;
+	position:absolute;
+	background-color:#fff;
+	opacity:0.1;
+	border-radius:1px;
+	z-index:2;
+	}
+div.popresims div.buttons div.toolbar div.tool:hover div.toolback{opacity:0.2;}	
+div.popresims div.buttons div.toolbar div.toolbarback{
+	top:0px;bottom:0px;left:0px;right:0px;
+	position:absolute;
+	background-color:#fff;
+	opacity:0.1;
+	z-index:1;
+	}	
+	
+div.popresims div.buton{
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	overflow:hidden;
+	width:50%;
+	z-index:7;
+	cursor:pointer;
+	z-index:8;
+	}
+div.popresims div.buton div.img{
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-position:left;
+	background-repeat:no-repeat;
+	background-size:30px auto;
+	z-index:5;
+	position:absolute;
+	opacity:0.4;
+}	
+div.popresims div.buton div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#fff;
+	opacity:0;
+	z-index:2;
+}
+
+div.popresims div.buton:hover div.img{opacity:1;}
+
+div.popresims div.buton div.img img{display:none;}
+body.ieold div.popresims div.buton div.img{ background-image:none !important;} 
+body.ieold div.popresims div.buton div.img img{ width:30px; height:auto; display:block;}
+
+div.popresims div.buton:hover div.back{}
+div.popresims div.buton.sol{left:0px;}	
+div.popresims div.buton.sol div.img{background-image:url(img/genel/sayfa-geri.png);}
+div.popresims div.buton.sag{right:0px;}		
+div.popresims div.buton.sag div.img{background-image:url(img/genel/sayfa-ileri.png);background-position:right;}
+	
+	
+div.thumbsdivpop{
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background-color:#000;
+	z-index:100000;
+	height:60px;
+	
+	}	
+div.thumbsdivpop div.thumbscontainer{
+	position:relative;
+	overflow:auto;
+	overflow-y:hidden;
+}		
+div.thumbsdivpop div.thumbs{
+	position:relative;
+	z-index:2;
+}
+body.ieold div.thumbsdivpop div.thumbs{}	
+div.thumbsdivpop div.thumbs div.thumb{
+	background-image:url(img/genel/noimage.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:cover;
+	cursor:pointer;
+	z-index:999;
+	position:relative;
+	background-color:#ccc;
+	}
+div.thumbsdivpop div.thumbs div.thumb div.icon{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	z-index:3;
+	background-image:url(img/genel/slide.png);
+	background-size:20px auto;
+	opacity:0.5;
+	display:none;
+	}	
+div.thumbsdivpop div.thumbs div.thumb div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#900;
+	opacity:0.4;
+	z-index:2;
+	display:none;
+	}		
+div.thumbsdivpop div.thumbs div.thumb:hover div.back{
+	opacity:0.2;
+	background-color:#fff;
+	display:block;
+	}
+	
+	
+div.thumbsdivpop div.thumbs div.thumb.aktif,
+div.thumbsdivpop div.thumbs div.thumb.aktif:hover{
+	filter: grayscale(100%); 
+	-webkit-filter: grayscale(100%);
+	}
+	
+div.thumbsdivpop div.thumbs div.thumb.aktif div.back,
+div.thumbsdivpop div.thumbs div.thumb.aktif:hover div.back{
+	opacity:0.5;
+	display:block;
+	}	
+div.thumbsdivpop div.thumbs div.thumb.aktif div.icon,
+div.thumbsdivpop div.thumbs div.thumb.aktif:hover div.icon{
+	display:block;
+	}	
+	
+	
+div.popdiv div.indexpop{
+z-index:100000;
+position:absolute;
+-webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.97);
+-moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.97);
+box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.97);
+max-width:80%;
+background-image:url(/img/genel/loading-mavi-50.gif);
+background-position:center;
+background-repeat:no-repeat;
+	}
+		
+	
+div.popdiv div.indexpop iframe{
+	width:1000px;
+	height:562.5px;
+	margin-bottom:-3px;
+	}	
+div.popdiv div.indexpop div.text{
+padding:10px;
+background-color:#fff;
+margin:0 auto;
+overflow:auto;
+overflow-x:hidden;
+overflow:hidden;
+}
+div.popdiv div.indexpop img{
+	width:100%;
+	height:auto;
+	}	
+div.popdiv div.indexpop div.img{
+	background-color:#fff;
+	}	
+
+
+@media screen and (max-width:1024px){
+div.popresims{width:80%;}
+}
+@media screen and (max-width:768px){
+div.popresims{width:90%;}
+}
+@media screen and (max-width:480px){
+
+}
+@media all and (orientation:portrait){}
+@media all and (orientation:landscape){}		
+					
+</style>
+<div class="loadingpop"></div>
+<div class="pop popdiv">
+
+
+
+<div class="ic popresims">
+
+<div class="buttons">
+
+<div class="toolbar gosterme">
+<div class="fl tool play" onclick="PopResimStart()"><div class="toolback"></div></div>
+<div class="fl tool stop pasif" onclick="PopResimStop()"><div class="toolback"></div></div>
+<div class="fl tool load"></div>
+<div class="cl"></div>
+<div class="toolbarback"></div>
+</div>
+
+
+<div class="buton sol" onclick="popResimRightLeftClick('geri');"><div class="img"><img src="img\genel\sayfa-geri.png"></div><div class="back"></div></div>
+<div class="buton sag" onclick="popResimRightLeftClick('ileri');"><div class="img"><img src="img\genel\sayfa-ileri.png"></div><div class="back"></div></div>
+</div>
+
+<div class="kapat"><div class="icon">X</div></div>
+<div class="anaresim gosterme"><div class="res"></div><div class="anaresimback"></div></div>
+</div>
+
+
+<div class="thumbsdivpop">
+<div class="thumbscontainer">
+<div class="thumbs fl"></div>
+</div>
+
+
+</div>
+
+</div>
+<div class="pop popback"></div>
+<script>
+var AktifThumbIndex;
+var poppadding=10;
+var poppaddingtop=10;
+var poppaddingbottom=30;
+var ThumbsScrollLeft=0;
+
+var PopResimPlay=null;
+var PopResimPlayTime=6;
+var PopResimPlayCurTime=PopResimPlayTime;
+
+$(document).ready(function(){
+PopKapatAyar();
+popResimButtonsClick();	
+MainLoading();
+$("div.thumbsdivpop").click(function(){return false;})
+});
+
+$(window).load(function(){MainLoading();});
+$(window).resize(function(){popResimAyar();});
+
+function PopWindowSizes(){
+WW=parseInt($(window).width());	
+WH=parseInt($(window).height());	
+}
+
+function MainLoading(){
+$("div.main").animate({"opacity":"1.0"},500);
+$("div.loadingpop").fadeOut();	
+}
+
+function PopKapatAyar(){
+$("div.ic div.kapat").click(function(){PopKapat();});
+$("div.pop").click(function(){PopKapat();});
+$("div.popdiv div.ic").click(function(){return false;});
+$("div.ic div.kapat").hover(function(){
+$("div.ic div.kapat").animate({padding:""+poppadding+"px",top:"-"+poppadding+"px",right:"-"+poppadding+"px",opacity:"1"},200).css({"background-color":"#d04024"});
+});
+$("div.ic div.kapat").mouseleave(function(){
+$("div.ic div.kapat").stop().animate({opacity:"0.8"},200).css({padding:"0px",top:"0px",right:"0px","background-color":"#fff"});
+});	
+}
+
+
+function popResimButtonsClick(){
+$("div.popresims div.anaresim").click(function(){anaResimClickEvent()});
+}
+
+function popResimRightLeftClick(tip){
+var thumbCount=parseInt($("div.thumbsdivpop div.thumbs div.thumb").length)-1;	
+if(tip=="ileri"){	
+AktifThumbIndex=AktifThumbIndex+1;
+if(AktifThumbIndex>thumbCount){AktifThumbIndex=0;}
+}else{
+AktifThumbIndex=AktifThumbIndex-1;
+if(AktifThumbIndex<0){AktifThumbIndex=thumbCount;}	
+}
+$("div.thumbsdivpop div.thumbs div.thumb").eq(AktifThumbIndex).click();	
+PopResimPlayCurTime=PopResimPlayTime;
+}
+
+function anaResimClickEvent(){
+var thumbCount=parseInt($("div.thumbsdivpop div.thumbs div.thumb").length)-1;
+AktifThumbIndex=$("div.thumbsdivpop div.thumbs div.thumb.aktif").index();	
+AktifThumbIndex=AktifThumbIndex+1;
+if(AktifThumbIndex>thumbCount){AktifThumbIndex=0;}
+$("div.thumbsdivpop div.thumbs div.thumb").eq(AktifThumbIndex).click();
+PopResimPlayCurTime=PopResimPlayTime;
+}
+
+function popResimThumbsScrollEvent(tip){
+var thumbW=parseFloat($("div.thumbsdivpop div.thumbs div.thumb").outerWidth());	
+var thumbCount=parseInt($("div.thumbsdivpop div.thumbs div.thumb").length);	
+var thumbsTopW=thumbW*thumbCount;
+var CurrentThumbsScrollLeft=parseFloat($("div.thumbsdivpop div.thumbscontainer").scrollLeft());
+if(tip=="ileri"){ThumbsScrollLeft=CurrentThumbsScrollLeft+thumbW}
+else if(tip=="geri"){ThumbsScrollLeft=CurrentThumbsScrollLeft-thumbW};
+$("div.thumbsdivpop div.thumbscontainer").animate({scrollLeft:ThumbsScrollLeft},300)
+}
+
+
+var BigImageLoadControlFunc=null;
+var BigImageLoadH=0;
+var BigImageLoadStatus=false;
+var BigImageLoadControlCount=0;
+
+function BigImageLoadControl(){
+var BigImageH=parseInt($("div.popresims div.anaresim div.res img").outerHeight());
+if(BigImageH==BigImageLoadH){
+BigImageLoadControlCount=BigImageLoadControlCount+1;	
+if(BigImageLoadControlCount>2){
+	clearInterval(BigImageLoadControlFunc);
+	BigImageLoadControlCount=0;
+	history.pushState("","","#ImageLoaded");
+	popResimAyar();
+	}	
+}
+BigImageLoadH=BigImageH;		
+}
+
+function BigImageLoad(){
+$("div.popresims div.gosterme").css({"opacity":"0"});	
+BigImageLoadH=0;	
+BigImageLoadControlFunc=setInterval(BigImageLoadControl,500);		
+}
+
+
+function popresimler(objId){
+PopWindowSizes();	
+$("div.pop").fadeIn();
+$("div.popresims").fadeIn();
+$("div.popresims div.kapat").hide();	
+var div=$("div#"+objId+"").closest("div.gorseller");	
+var anaresim=$("div#"+objId+"").attr("data-bigimage");
+$("div.popresims div.gosterme").css({"opacity":"0"});
+$("div.popresims div.anaresim div.res").html("<img src='"+anaresim+"'/>");
+var say=0;
+if(div.find("div.gorsel").length>1){
+div.find("div.gorsel").each(function(index, element){
+say=say+1;	
+var Bigresim=$(this).attr("data-bigimage");	
+var SmallResim=$(this).attr("data-smallimage");	
+var aktifclass="";if(Bigresim==anaresim){aktifclass="aktif";}else{aktifclass="";};	
+$("div.thumbsdivpop div.thumbs").append("<div class='fl thumb "+aktifclass+"' id='t"+say+"' style='background-image:url("+SmallResim+")' onclick=ThumbClick('"+Bigresim+"','t"+say+"')><div class='back'></div><div class='icon'></div></div>") ;  
+$("div.thumbsdivpop div.thumbsbuttons").delay(500).fadeIn(500);
+});	
+}else{
+$("div.thumbsdivpop").css({"display":"none"});	
+}
+$("div.thumbsdivpop div.thumbs").append("<div class='cl'></div>");
+AktifThumbIndex=$("div#"+objId+"").index();
+BigImageLoad();
+$("div.popresims div.buttons div.toolbar").fadeIn();
+}
+
+
+function PopResimStart(){
+PopResimPlay=setInterval(PopResimPlayFunc,1000);
+$("div.popresims div.toolbar div.stop").removeClass("pasif");
+$("div.popresims div.toolbar div.play").addClass("pasif");
+$("div.popresims div.buttons div.toolbar div.tool.load").fadeIn();
+}
+
+function PopResimStop(){
+clearInterval(PopResimPlay);
+$("div.popresims div.toolbar div.play").removeClass("pasif");
+$("div.popresims div.toolbar div.stop").addClass("pasif");
+PopResimPlayCurTime=PopResimPlayTime;
+$("div.popresims div.buttons div.toolbar div.tool.load").fadeOut();
+}
+	
+function PopResimPlayFunc(){
+PopResimPlayCurTime=PopResimPlayCurTime-1;
+if(PopResimPlayCurTime<0){
+PopResimPlayCurTime=PopResimPlayTime;
+var ThumbIndexCount=parseInt($("div.thumbsdivpop div.thumb").length)-1;
+AktifThumbIndex=AktifThumbIndex+1;if(AktifThumbIndex>ThumbIndexCount){AktifThumbIndex=0;}
+$("div.thumbsdivpop div.thumbs div.thumb").eq(AktifThumbIndex).click();	
+}
+$("div.popresims div.toolbar div.load").html(PopResimPlayCurTime);	
+}
+
+
+var popresimsDefaultW=$("div.popresims").css("width");
+function popResimAyar(){
+var WW=parseInt($("div.pop.popback").outerWidth());	
+var WH=parseInt($("div.pop.popback").outerHeight());		
+var WW2=WW/2;
+var WH2=WH/2;	
+$("div.popresims").css({"height":"100%","width":""+popresimsDefaultW+"","top":""+WW2+"px","left":""+WH2+"px"});
+$("div.thumbsdivpop div.thumbscontainer").css({"margin-left":"0px"});
+$("div.popresims div.gosterme").css({"opacity":"0"});
+$("div.popresims div.kapat").hide();
+var ThumbsH=parseInt($("div.thumbsdivpop").outerHeight());
+var ThumbH=ThumbsH;
+var ThumbW=ThumbsH;
+var ThumbCount=parseInt($("div.thumbsdivpop div.thumb").length);
+var ThumbsTotalW=ThumbW*ThumbCount;
+$("div.thumbsdivpop div.thumbscontainer").css({"width":""+WW+"px"});
+$("div.thumbsdivpop div.thumbs").css({"width":""+ThumbsTotalW+"px"});
+$("div.thumbsdivpop div.thumb").css({"width":""+ThumbW+"px","height":""+ThumbH+"px"});
+if(WW>ThumbsTotalW){var ThumbsML=parseInt((WW-ThumbsTotalW)/2);$("div.thumbsdivpop div.thumbscontainer").css({"margin-left":""+ThumbsML+"px"});}
+		
+var BigImageW=parseInt($("div.popresims div.anaresim div.res img").outerWidth());
+var BigImageH=parseInt($("div.popresims div.anaresim div.res img").outerHeight());	
+var BigImageMaxH=WH-ThumbH-(poppaddingtop+poppaddingbottom);
+
+if(BigImageH>BigImageMaxH){
+BigImageH=BigImageMaxH;
+$("div.popresims div.anaresim div.res img").css({"height":""+BigImageH+"px","width":"auto"});
+BigImageW=parseInt($("div.popresims div.anaresim div.res img").outerWidth());
+$("div.popresims").css({"height":""+BigImageH+"px","width":""+BigImageW+"px"});
+}
+$("div.popresims div.buttons").css({"height":""+BigImageH+"px"});
+	
+
+var BigImageML=parseInt((WW-BigImageW)/2);	
+var BigImageMT=parseInt((WH-ThumbH-BigImageH-poppaddingbottom)/2);	
+
+$("div.popresims").css({"left":""+BigImageML+"px","top":""+BigImageMT+"px"});
+$("div.popresims div.gosterme").animate({"opacity":"1"},400);
+$("div.popresims div.kapat").fadeIn(600);
+}
+
+
+function PopKapat(){
+$("div.pop").fadeOut(500);	
+$("div.pop div.ic").fadeOut();	
+setTimeout(function(){$("div.thumbsdivpop div.thumbs").html("");	},600)
+}
+
+function ThumbClick(rs,id){
+$("div.popresims div.kapat").hide();	
+$("div.popresims div.anaresim div.res").html("<img src='"+rs+"'/>");
+$("div.thumbsdivpop div.thumbs div.thumb").removeClass("aktif");
+$("div.thumbsdivpop div.thumbs div.thumb#"+id+"").addClass("aktif");
+AktifThumbIndex=$("div.thumbsdivpop div.thumbs div.thumb.aktif").index();
+var thumbW=parseFloat($("div.thumbsdivpop div.thumbs div.thumb").outerWidth());
+var ThubmsClickScrollLeft=(AktifThumbIndex*thumbW)-thumbW;
+$("div.thumbsdivpop div.thumbscontainer").animate({scrollLeft:ThubmsClickScrollLeft},300);
+BigImageLoad();
+PopResimPlayCurTime=PopResimPlayTime;
+}
+
+
+
+
+
+
+</script>
+<div class="main">
+
+<style>
+
+div.toplinediv{
+background-color:#ccc;background-color:#003895;
+-webkit-box-shadow: 0px 5px 14px 0px rgba(50, 50, 50, 0.5);
+-moz-box-shadow:    0px 5px 14px 0px rgba(50, 50, 50, 0.5);
+box-shadow:         0px 5px 14px 0px rgba(50, 50, 50, 0.5);
+position:relative;
+z-index:98;
+min-height:50px;
+}
+
+div.toplinediv div.ic.slidevar{padding:0 10px;}	
+
+div.toplinediv div.logodiv{
+	position:absolute;
+	overflow:hidden;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+	-webkit-box-shadow: 0px 5px 14px 0px rgba(50, 50, 50, 0.5);
+-moz-box-shadow:    0px 5px 14px 0px rgba(50, 50, 50, 0.5);
+box-shadow:         0px 5px 14px 0px rgba(50, 50, 50, 0.5);
+margin-left:10px;
+	}	
+div.toplinediv div.logodiv div.logo{
+	position:relative;
+	z-index:2;
+	height:120px;
+	overflow:hidden;
+	}
+div.toplinediv div.logodiv div.logo.logomobil{display:none;}	
+div.toplinediv div.logodiv div.logo img{
+	height:100%;
+	width:auto;
+	}	
+div.toplinediv div.logodiv div.logodivback{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	opacity:1;
+	z-index:1;
+	background-color:#fff;background-color:#003895;
+	}
+	
+	
+/*------  responsive  ------*/
+div.toplinediv div.responsivediv{
+	height:30px;
+	cursor:pointer;
+	display:none;
+	position:relative;
+	overflow:hidden;
+	margin-top:5px;
+	margin-right:5px;
+	}
+div.toplinediv div.responsivediv div.text{
+	line-height:30px !important;
+	color:#fff;
+	font-family:"exodemibold","Arial Black",Arial;
+	font-size:14px;
+	padding-left:12px;
+	}
+div.toplinediv div.responsivediv div.icon{
+	height:30px;
+	width:30px;
+	overflow:hidden;
+	}
+div.toplinediv div.responsivediv div.icon svg{	
+	fill:#333;fill:#FFFFFF;
+	width:20px;
+	height:auto;
+	margin:1px 5px;
+}
+
+div.toplinediv div.responsivediv div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#fff;
+	opacity:0.1;
+	}
+div.toplinediv div.responsivediv:hover div.back,
+div.toplinediv div.responsivediv.aktif div.back{opacity:0.1;background-color:#000;}			
+	
+	
+/*------  sag linkler ------*/		
+div.toplinediv div.saglinkler{
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:8px;
+	position:relative;
+	z-index:99999;
+	}
+div.toplinediv div.saglinkler div.ayrac{
+	width:1px;
+	height:20px;
+	position:relative;
+	margin:0 10px;
+	margin-top:5px;
+	}	
+div.toplinediv div.saglinkler div.ayrac div.ayracback{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	opacity:0.2;
+	}
+div.toplinediv div.saglinkler div.buton{
+	height:30px;
+	width:30px;
+	position:relative;
+	margin-right:2px;
+	overflow:hidden;
+	border-radius:2px;
+	}
+div.toplinediv div.saglinkler div.buton.responsive{
+	display:none;cursor:pointer;
+	}	
+div.toplinediv div.saglinkler div.buton div.icon{
+	height:30px;
+	width:30px;
+	overflow:hidden;
+	}
+div.toplinediv div.saglinkler div.buton div.icon svg{
+	width:15px;
+	height:auto;
+	margin:7.5px;
+	fill:#333;fill:#FFFFFF;
+	}	
+	
+	
+	
+
+div.toplinediv div.saglinkler div.butons.sosyal div.buton{display:none;}
+	
+	
+	
+div.toplinediv div.saglinkler div.buton div.text{
+	line-height:30px;
+	font-family:'bebas';
+	font-size:13px;
+	padding:0 10px;
+	text-align:center;
+	color:#fff;color:#FFFFFF;
+	}
+div.toplinediv div.saglinkler div.buton div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	opacity:0.1;
+	}
+div.toplinediv div.saglinkler div.buton:hover div.back{opacity:0.2;}	
+div.toplinediv div.saglinkler div.buton.aktif:hover div.back,
+div.toplinediv div.saglinkler div.buton.aktif div.back{opacity:0.1;background-color:#fff;}
+
+div.toplinediv div.saglinkler div.butondiv{}
+div.toplinediv div.saglinkler div.butondiv div.altlinkler{
+	position:absolute;
+	background-color:#000;background-color:#003895;
+	top:33px;
+	min-width:99px;
+	padding:5px;
+	display:none;
+	}
+div.toplinediv div.saglinkler div.butondiv:hover div.altlinkler{display:block;}	
+div.toplinediv div.saglinkler div.butondiv div.altlinkler div.altlink{
+	position:relative;
+	}
+div.toplinediv div.saglinkler div.butondiv div.altlinkler div.altlink div.icon{
+	height:25px;
+	width:25px;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:18px auto;
+	}
+div.toplinediv div.saglinkler div.butondiv div.altlinkler div.altlink div.icon svg{
+	height:15px;
+	width:auto;
+	margin:5px;
+	fill:#333;fill:#FFFFFF;
+	}	
+div.toplinediv div.saglinkler div.butondiv div.altlinkler div.altlink div.text{
+	color:#fff;color:#FFFFFF;
+	line-height:18px;
+	padding:5px;
+	font-size:12px;
+	z-index:2;
+	overflow:hidden;
+	}
+div.toplinediv div.saglinkler div.butondiv div.altlinkler div.altlink:hover div.text{}
+div.toplinediv div.saglinkler div.butondiv div.altlinkler div.altlink:hover div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#fff;
+	opacity:0.2;
+	z-index:1;
+	}
+	
+	
+div.toplinediv div.linkler{display:block;}
+div.toplinediv div.linkler div.link{
+	padding:0 7.5px;
+	position:relative;
+	margin-left:10px;
+	}
+
+div.toplinediv div.linkler div.link div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	display:none;
+	z-index:2;
+	opacity:0.2;
+	}	
+div.toplinediv div.linkler div.link:hover div.back{display:block;}	
+	
+div.toplinediv div.linkler div.link div.ok{
+	display:none;
+	position:absolute;
+	opacity:1;
+	width:20px;height:20px;
+	overflow:hidden;
+	z-index:99;
+	margin-top:8px;
+	}
+div.toplinediv div.linkler div.link div.ok div.okback{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	z-index:2;
+	opacity:0.2;
+	display:none;
+	}
+div.toplinediv div.linkler div.link div.ok svg{
+	fill:#000;fill:#FFFFFF; 
+	width:20px; height:20px; 
+	z-index:3;
+	position:relative;
+	opacity:0.8;
+	}			
+
+	
+		
+div.toplinediv div.linkler div.link div.anatext{
+	color:#333;color:#FFFFFF;
+	font-family:"exodemibold","Arial Black",Arial;
+	font-size:14px;
+	position:relative;
+	z-index:5;
+	line-height:35px;
+	height:35px;
+	margin-top:7.5px;
+	padding:0 15px;
+	}		
+div.toplinediv div.linkler div.link.aktif div.anatext, 
+div.toplinediv div.linkler div.link.aktif:hover div.anatext{
+	background-color:#ebebeb;background-color:#092D69;
+	border-radius:2px;
+	}
+div.toplinediv div.linkler div.link.aktif div.anatext, 
+div.toplinediv div.linkler div.link.aktif:hover div.anatext{
+	color:#000;color:#FFFFFF;
+	}		
+
+div.toplinediv div.linkler div.link div.altlinkler{
+	display:none;
+	position:absolute;
+	left:-50px;
+	right:-50px;
+	z-index:6;
+	padding-top:30px;
+	}
+
+div.toplinediv div.linkler div.link div.altlinkler div.altlinklerbackdiv{
+z-index:2;	
+position:absolute;	
+top:30px;bottom:0px;left:0px;right:0px;
+border-bottom-left-radius:2px;border-bottom-right-radius:2px;
+background-color:#ccc;background-color:#092D69;	
+}
+div.toplinediv div.linkler div.link div.altlinkler div.altlinklerbackdiv2{
+z-index:1;	
+position:absolute;	
+top:25px;bottom:-5px;left:-5px;right:-5px;
+border-bottom-left-radius:2px;border-bottom-right-radius:2px;
+background-color:#000;
+opacity:0.2;
+
+}
+div.toplinediv div.linkler div.link div.altlinkler div.altlinklerback{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	z-index:1;
+	opacity:0.2;
+	}	
+	
+div.toplinediv div.linkler div.link div.altlinkler div.altlink{
+	height:30px;
+	overflow:hidden;
+	margin:5px;
+	position:relative;
+	}
+div.toplinediv div.linkler div.link div.altlinkler div.altlink div.alttext{
+	color:#333;color:#FFFFFF;
+	font-family:'exo',Arial;
+	font-size:13px;
+	padding:0 8px;
+	line-height:30px;
+	position:relative;
+	z-index:5;
+	}	
+div.toplinediv div.linkler div.link div.altlinkler div.altlink div.altlinkback{
+	background-image:url(img/genel/slide-beyaz-opacity20.png);
+	background-size:15px auto;
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	display:none;
+	z-index:4;
+	border-radius:2px;
+	}
+div.toplinediv div.linkler div.link div.altlinkler div.altlink:hover div.altlinkback{display:block;}		
+
+@media screen and (max-width:1440px){
+div.toplinediv div.linkler div.link{
+	padding:0 5px;
+	margin-left:5px;
+	}	
+div.toplinediv div.linkler div.link div.anatext{
+	font-size:12px;
+	padding:0 10px;
+	}
+div.toplinediv div.linkler div.link div.altlinkler div.altlink div.alttext{
+	font-size:11px;
+	padding:0 5px;
+	}
+div.toplinediv div.logodiv div.logo{
+	height:100px;
+	}		
+}
+				
+@media screen and (max-width:1024px){
+div.toplinediv{height:40px;}
+div.toplinediv div.responsivediv{display:block;}
+div.toplinediv div.responsivediv div.text{line-height:40px;}
+div.toplinediv div.responsivediv div.icon{height:26px;width:22px;padding:4px 10px;}
+
+div.toplinediv div.logodiv{position:relative;margin:0px;clear:both;padding:0px;width:100%;border-radius:0px;}
+
+div.toplinediv div.diller div.dilback{display:block;}
+div.toplinediv div.saglinkler div.butons{display:none;background-color:#000;background-color:#003895;position:absolute;top:35px;padding:10px;left:-10px;padding-bottom:6px;}
+div.toplinediv div.saglinkler div.butons div.buton{margin-right:0px;margin-bottom:5px;}
+div.toplinediv div.saglinkler div.buton.responsive{display:block;cursor:pointer;}
+div.toplinediv div.saglinkler{padding-top:5px;padding-right:8px;height:25px;}
+div.toplinediv div.saglinkler div.butons div.buton{clear:both;}
+
+div.toplinediv div.linklerdiv{}
+div.toplinediv div.linkler{
+position:absolute;
+clear:both; 
+background-image:url(img/genel/slide-opacity10.png);
+background-size:20px auto;
+left:0px;right:0px;top:40px;
+padding:0px;
+margin:0px;
+display:none;
+width:100%;
+z-index:98;
+background-color:#000;background-color:#003895;
+padding-top:5px;
+}
+
+div.toplinediv div.linkler div.link{
+clear:both;
+width:100%;
+padding:0px;
+margin:0px;
+position:relative;
+z-index:2;
+}
+div.toplinediv div.linkler div.link.aktif{border-radius:0px;}
+div.toplinediv div.linkler div.link div.anatext{
+font-size:13px;
+color:#000;color:#FFFFFF;
+margin:0px;
+padding-left:30px;
+height:30px;
+width:100%;
+line-height:30px;
+overflow:hidden;
+}
+
+div.toplinediv div.linkler div.link div.ok{
+	position:absolute;
+	opacity:1;
+	top:0px;left:0px;
+	width:20px;height:20px;
+	margin:5px;
+	overflow:hidden;
+	z-index:99;
+	border-radius:2px;
+	cursor:pointer;
+	display:block;
+	}
+div.toplinediv div.linkler div.link div.ok div.okback{
+	background-color:#000;
+	position:absolute;
+	top:0px;left:0px;right:0px;bottom:0px;
+	z-index:2;
+	opacity:0.2;
+	display:block;
+	
+	}
+div.toplinediv div.linkler div.link div.ok svg{
+	fill:#000;fill:#FFFFFF; 
+	width:10px; height:10px; 
+	margin-left:5px; 
+	z-index:3;
+	margin-top:5px;
+	position:relative;
+	opacity:0.6;
+	}			
+
+div.toplinediv div.linkler div.link div.altlinkler{
+	position:relative !important;
+	width:100%;
+	clear:both;
+	width:auto;
+	left:0px;right:0px;
+	z-index:6;
+	padding:0px;
+	overflow:auto;
+	}	
+div.toplinediv div.linkler div.link div.altlinkler div.altlinklerbackdiv,
+div.toplinediv div.linkler div.link div.altlinkler div.altlinklerbackdiv2{display:none !important;}
+
+		
+
+	}	
+@media screen and (max-width:768px){
+div.toplinediv div.logodiv div.logo{height:100px;}	
+}	
+@media screen and (max-width:480px){
+div.toplinediv div.logodiv div.logo{height:80px;}
+}
+	
+@media all and (orientation:portrait){}
+@media all and (orientation:landscape){}
+</style>
+
+
+
+
+<div class="toplinediv">
+<div class="ic">
+
+
+<!--start linkler-->
+<div class="fl linkler">
+
+<div id="analink20" class="fl link aktif">
+<a onclick="LoadingStart();" href="index.htm">
+<div class="fl icon"></div>
+<div class="fl anatext">Home Page</div>
+<div class="cl"></div>
+<div class="back"></div>
+</a>
+
+
+</div>
+
+<div id="analink21" class="fl link ">
+<a onclick="LoadingStart();" href="sayfalar\sayfa\params\dil-en\tip-sayfa\id-11\profile.htm">
+<div class="fl icon"></div>
+<div class="fl anatext">About Us</div>
+<div class="cl"></div>
+<div class="back"></div>
+</a>
+
+
+<div class="ok"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewbox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75 		"></polygon></g></g></svg><div class="okback"></div></div>
+<div class="altlinkler">
+
+<a onclick="LoadingStart();" href="   ">
+<div class="altlink ">
+<div class="alttext">   </div>
+<div class="altlinkback"></div>
+</div>
+</a>
+
+<a onclick="LoadingStart();" href="   ">
+<div class="altlink ">
+<div class="alttext">     </div>
+<div class="altlinkback"></div>
+</div>
+</a>
+
+<a onclick="LoadingStart();" href="   ">
+<div class="altlink ">
+<div class="alttext">     </div>
+<div class="altlinkback"></div>
+</div>
+</a>
+
+<div class="altlinklerbackdiv"><div class="altlinklerback"></div></div>
+<div class="altlinklerbackdiv2"></div>
+</div>
+
+</div>
+
+<div id="analink22" class="fl link ">
+<a onclick="LoadingStart();" href="sayfalar\liste\params\tip-urun\urunler.htm">
+<div class="fl icon"></div>
+<div class="fl anatext">Activities</div>
+<div class="cl"></div>
+<div class="back"></div>
+</a>
+
+
+</div>
+
+<div id="analink23" class="fl link ">
+<a onclick="LoadingStart();" href="sayfalar\liste\params\tip-hizmet\hizmetler.htm">
+<div class="fl icon"></div>
+<div class="fl anatext">Services</div>
+<div class="cl"></div>
+<div class="back"></div>
+</a>
+
+
+</div>
+
+<div id="analink77" class="fl link ">
+<a onclick="LoadingStart();" href="https://aca-achour.dz:2096/">
+<div class="fl icon"></div>
+<div class="fl anatext">E-Mail</div>
+<div class="cl"></div>
+<div class="back"></div>
+</a>
+
+
+</div>
+
+<div id="analink24" class="fl link ">
+<a onclick="LoadingStart();" href="iletisim\iletisim.htm">
+<div class="fl icon"></div>
+<div class="fl anatext">Contact</div>
+<div class="cl"></div>
+<div class="back"></div>
+</a>
+
+
+</div>
+
+<div class="cl"></div>
+</div>
+<!--end linkler-->
+
+
+<!--start responsivediv-->
+<div class="fr responsivediv">
+<div class="fl text">Menu</div>
+<div class="fl icon"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 92.833 92.833" style="enable-background:new 0 0 92.833 92.833;" xml:space="preserve">
+<g>
+<g>
+<path d="M89.834,1.75H3c-1.654,0-3,1.346-3,3v13.334c0,1.654,1.346,3,3,3h86.833c1.653,0,3-1.346,3-3V4.75
+C92.834,3.096,91.488,1.75,89.834,1.75z"></path>
+<path d="M89.834,36.75H3c-1.654,0-3,1.346-3,3v13.334c0,1.654,1.346,3,3,3h86.833c1.653,0,3-1.346,3-3V39.75
+C92.834,38.096,91.488,36.75,89.834,36.75z"></path>
+<path d="M89.834,71.75H3c-1.654,0-3,1.346-3,3v13.334c0,1.654,1.346,3,3,3h86.833c1.653,0,3-1.346,3-3V74.75
+C92.834,73.095,91.488,71.75,89.834,71.75z"></path>
+</g>
+</g></svg></div>
+<div class="cl"></div>
+<div class="back"></div>
+</div>
+<!--end responsivediv-->
+
+<!--start saglinkler-->
+<div class="fr saglinkler">
+
+
+<div class="fl buton responsive">
+<div class="icon">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 430.117 430.118" style="enable-background:new 0 0 430.117 430.118;" xml:space="preserve">
+<g>
+<path id="ShareThis" d="M151.804,215.059c0,1.475-0.336,2.856-0.423,4.326l154.111,77.03
+c13.194-11.173,30.075-18.146,48.725-18.146c41.925,0.009,75.9,33.985,75.9,75.905c0,41.967-33.976,75.942-75.9,75.942
+c-41.961,0-75.9-33.976-75.9-75.942c0-1.512,0.336-2.861,0.42-4.326l-154.111-77.035c-13.234,11.131-30.075,18.104-48.725,18.104
+c-41.922,0-75.9-33.938-75.9-75.858c0-41.962,33.979-75.945,75.9-75.945c18.649,0,35.496,7.017,48.725,18.148l154.111-77.035
+c-0.084-1.473-0.42-2.858-0.42-4.368c0-41.88,33.939-75.859,75.9-75.859c41.925,0,75.9,33.979,75.9,75.859
+c0,41.959-33.976,75.945-75.9,75.945c-18.691,0-35.539-7.017-48.725-18.19l-154.111,77.077
+C151.463,212.163,151.804,213.549,151.804,215.059z"></path>
+</g>
+</svg>
+</div>
+<div class="back"></div>
+</div>
+
+<div class="fl butons sosyal">
+<a href="https://web.facebook.com/SARL-ACA-Achour-Entreprises-180860782382439/" target="_blank" onclick="window.open(this.href,'_blank')">
+<div class="fl buton sosyal facebook">
+<div class="icon"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 96.124 96.123" style="enable-background:new 0 0 96.124 96.123;" xml:space="preserve">
+<g>
+<path d="M72.089,0.02L59.624,0C45.62,0,36.57,9.285,36.57,23.656v10.907H24.037c-1.083,0-1.96,0.878-1.96,1.961v15.803
+c0,1.083,0.878,1.96,1.96,1.96h12.533v39.876c0,1.083,0.877,1.96,1.96,1.96h16.352c1.083,0,1.96-0.878,1.96-1.96V54.287h14.654
+c1.083,0,1.96-0.877,1.96-1.96l0.006-15.803c0-0.52-0.207-1.018-0.574-1.386c-0.367-0.368-0.867-0.575-1.387-0.575H56.842v-9.246
+c0-4.444,1.059-6.7,6.848-6.7l8.397-0.003c1.082,0,1.959-0.878,1.959-1.96V1.98C74.046,0.899,73.17,0.022,72.089,0.02z"></path>
+</g></svg></div>
+<div class="back"></div>
+</div>
+</a><a href="" target="_blank" onclick="window.open(this.href,'_blank')">
+<div class="fl buton sosyal twitter">
+<div class="icon"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+<g>
+<g>
+<path d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411
+c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513
+c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101
+c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104
+c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194
+c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485
+c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z"></path>
+</g>
+</g>
+</svg>
+</div>
+<div class="back"></div>
+</div>
+</a><a href="" target="_blank" onclick="window.open(this.href,'_blank')">
+<div class="fl buton sosyal youtube">
+<div class="icon"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 90 90" style="enable-background:new 0 0 90 90;" xml:space="preserve">
+<g>
+<path id="YouTube" d="M70.939,65.832H66l0.023-2.869c0-1.275,1.047-2.318,2.326-2.318h0.315c1.282,0,2.332,1.043,2.332,2.318
+L70.939,65.832z M52.413,59.684c-1.253,0-2.278,0.842-2.278,1.873V75.51c0,1.029,1.025,1.869,2.278,1.869
+c1.258,0,2.284-0.84,2.284-1.869V61.557C54.697,60.525,53.671,59.684,52.413,59.684z M82.5,51.879v26.544
+C82.5,84.79,76.979,90,70.23,90H19.771C13.02,90,7.5,84.79,7.5,78.423V51.879c0-6.367,5.52-11.578,12.271-11.578H70.23
+C76.979,40.301,82.5,45.512,82.5,51.879z M23.137,81.305l-0.004-27.961l6.255,0.002v-4.143l-16.674-0.025v4.073l5.205,0.015v28.039
+H23.137z M41.887,57.509h-5.215v14.931c0,2.16,0.131,3.24-0.008,3.621c-0.424,1.158-2.33,2.388-3.073,0.125
+c-0.126-0.396-0.015-1.591-0.017-3.643l-0.021-15.034h-5.186l0.016,14.798c0.004,2.268-0.051,3.959,0.018,4.729
+c0.127,1.357,0.082,2.939,1.341,3.843c2.346,1.69,6.843-0.252,7.968-2.668l-0.01,3.083l4.188,0.005L41.887,57.509L41.887,57.509z
+M58.57,74.607L58.559,62.18c-0.004-4.736-3.547-7.572-8.356-3.74l0.021-9.239l-5.209,0.008l-0.025,31.89l4.284-0.062l0.39-1.986
+C55.137,84.072,58.578,80.631,58.57,74.607z M74.891,72.96l-3.91,0.021c-0.002,0.155-0.008,0.334-0.01,0.529v2.182
+c0,1.168-0.965,2.119-2.137,2.119h-0.766c-1.174,0-2.139-0.951-2.139-2.119V75.45v-2.4v-3.097h8.954v-3.37
+c0-2.463-0.063-4.925-0.267-6.333c-0.641-4.454-6.893-5.161-10.051-2.881c-0.991,0.712-1.748,1.665-2.188,2.945
+c-0.444,1.281-0.665,3.031-0.665,5.254v7.41C61.714,85.296,76.676,83.555,74.891,72.96z M54.833,32.732
+c0.269,0.654,0.687,1.184,1.254,1.584c0.56,0.394,1.276,0.592,2.134,0.592c0.752,0,1.418-0.203,1.998-0.622
+c0.578-0.417,1.065-1.04,1.463-1.871l-0.099,2.046h5.813V9.74H62.82v19.24c0,1.042-0.858,1.895-1.907,1.895
+c-1.043,0-1.904-0.853-1.904-1.895V9.74h-4.776v16.674c0,2.124,0.039,3.54,0.102,4.258C54.4,31.385,54.564,32.069,54.833,32.732z
+M37.217,18.77c0-2.373,0.198-4.226,0.591-5.562c0.396-1.331,1.107-2.401,2.137-3.208c1.027-0.811,2.342-1.217,3.941-1.217
+c1.345,0,2.497,0.264,3.459,0.781c0.967,0.52,1.713,1.195,2.23,2.028c0.527,0.836,0.885,1.695,1.076,2.574
+c0.195,0.891,0.291,2.235,0.291,4.048v6.252c0,2.293-0.092,3.98-0.271,5.051c-0.177,1.074-0.557,2.07-1.146,3.004
+c-0.58,0.924-1.329,1.615-2.237,2.056c-0.918,0.445-1.968,0.663-3.154,0.663c-1.325,0-2.441-0.183-3.361-0.565
+c-0.923-0.38-1.636-0.953-2.144-1.714c-0.513-0.762-0.874-1.69-1.092-2.772c-0.219-1.081-0.323-2.707-0.323-4.874L37.217,18.77
+L37.217,18.77z M41.77,28.59c0,1.4,1.042,2.543,2.311,2.543c1.27,0,2.308-1.143,2.308-2.543V15.43c0-1.398-1.038-2.541-2.308-2.541
+c-1.269,0-2.311,1.143-2.311,2.541V28.59z M25.682,35.235h5.484l0.006-18.96l6.48-16.242h-5.998l-3.445,12.064L24.715,0h-5.936
+l6.894,16.284L25.682,35.235z"></path>
+</g>
+</svg>
+</div>
+<div class="back"></div>
+</div>
+</a><a href="" target="_blank" onclick="window.open(this.href,'_blank')">
+<div class="fl buton sosyal linkedin">
+<div class="icon"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 430.117 430.117" style="enable-background:new 0 0 430.117 430.117;" xml:space="preserve">
+<g>
+<path id="LinkedIn" d="M430.117,261.543V420.56h-92.188V272.193c0-37.271-13.334-62.707-46.703-62.707
+c-25.473,0-40.632,17.142-47.301,33.724c-2.432,5.928-3.058,14.179-3.058,22.477V420.56h-92.219c0,0,1.242-251.285,0-277.32h92.21
+v39.309c-0.187,0.294-0.43,0.611-0.606,0.896h0.606v-0.896c12.251-18.869,34.13-45.824,83.102-45.824
+C384.633,136.724,430.117,176.361,430.117,261.543z M52.183,9.558C20.635,9.558,0,30.251,0,57.463
+c0,26.619,20.038,47.94,50.959,47.94h0.616c32.159,0,52.159-21.317,52.159-47.94C103.128,30.251,83.734,9.558,52.183,9.558z
+M5.477,420.56h92.184v-277.32H5.477V420.56z"></path>
+</g>
+</svg></div>
+<div class="back"></div>
+</div>
+</a>
+<div class="cl"></div>
+</div>
+
+
+
+
+
+<div class="cl"></div>
+</div>
+<!--end saglinkler-->
+
+
+<a href="index.htm">
+<div class="fl logodiv">
+<div class="logo"><img src="dosyalar\logo\logo.png"></div>
+<div class="logo logomobil"></div>
+<div class="logodivback"></div>
+</div>
+</a>
+
+
+
+<div class="cl"></div>
+</div>
+</div>
+
+
+<script>
+
+$(document).ready(function(){
+LinkHover();
+
+LogoReady(); 
+LogoLoad();
+LogoResize();	
+	
+ResponsiveMenu();
+ResponsiveAltLinkOkClickEvent();
+UstLinklerAyar();
+
+});
+
+$(window).resize(function(){
+UstLinklerAyar();	
+LogoResize();
+})
+
+
+function LogoResize(){
+var WW=parseInt($(window).width());	
+if(WW<=1024){
+var LogoW=parseInt($("div.toplinediv div.logodiv div.logo img").outerWidth());
+var LogoL=parseInt((WW-LogoW)/2);
+$("div.toplinediv div.logodiv div.logo img").css({"margin-left":""+LogoL+"px"});
+}
+}
+
+function LogoReady(){
+var WW=parseInt($(window).width());	
+if(WW>=1024){$("div.toplinediv div.logodiv").hide();}
+}
+
+function LogoLoad(){
+var WW=parseInt($(window).width());		
+if(WW>=1024){$("div.toplinediv div.logodiv").delay(1200).effect("slide",{direction:"left"},1000);}
+}
+
+
+function UstLinklerAyar(){
+var WW=parseInt($(window).width());		
+if(WW>1024){	
+var LinklerW=parseFloat($("div.toplinediv div.linkler").outerWidth());
+var LinklerML=parseInt((WW-LinklerW)/2);
+var OkW=parseFloat($("div.toplinediv div.linkler div.link div.ok").outerWidth());
+var OkH=parseFloat($("div.toplinediv div.linkler div.link div.ok").outerHeight());
+$("div.toplinediv div.linkler").css({"margin-left":""+LinklerML+"px"});
+$("div.toplinediv div.linkler div.link").each(function(index, element) {
+var LinkW=parseFloat($(this).outerWidth());
+var OkML=parseFloat((LinkW-OkW)/2)-2.5;
+$(this).find("div.ok").css({"left":""+OkML+"px"});
+});	
+}
+}
+
+
+function LinkHover(){
+var WW=parseInt($(window).width());		
+if(WW>1024){	
+var AnimateTime=100;		
+
+$("div.toplinediv div.linkler div.link").hover(function(){
+var AltLinkKontrol=parseInt($(this).find("div.altlinkler").length);	
+if(AltLinkKontrol>0){
+$(this).find("div.ok").delay(AnimateTime).fadeIn(AnimateTime);
+$(this).find("div.back").animate({"bottom":"-25px"},AnimateTime);
+$(this).find("div.altlinkler").delay(AnimateTime).animate({height:"show"},AnimateTime);
+}
+});	
+
+$("div.toplinediv div.linkler div.link").mouseleave(function(){
+$(this).find("div.ok").fadeOut(AnimateTime);
+$(this).find("div.altlinkler").animate({"height":"hide"},AnimateTime);	
+$(this).find("div.back").animate({"bottom":"0px"},AnimateTime)
+});
+}
+}
+
+function ResponsiveAltLinkOkClickEvent(){
+var WW=parseInt($(window).width());
+if(WW<1024){	
+$("div.toplinediv div.linkler div.link div.ok").click(function(){
+$("div.toplinediv div.linkler div.link div.altlinkler").animate({height:"hide"},400);
+var DisplayDurum=$(this).closest("div.link").find("div.altlinkler").css("display");
+if(DisplayDurum=="none"){	
+$(this).closest("div.link").find("div.altlinkler").animate({height:"show"},400);
+}
+return false;	
+});
+}	
+}
+
+
+
+function ResponsiveMenu(){	
+var SosyalButonCount=parseInt($("div.toplinediv div.saglinkler div.butons.sosyal div.buton").length);
+var SosyalButonDelay=1500;
+for(var i=0 ; i<SosyalButonCount ; i++){
+SosyalButonDelay=SosyalButonDelay+100;	
+$("div.toplinediv div.saglinkler div.butons.sosyal div.buton").eq(i).delay(SosyalButonDelay).show(600);}
+	
+var responsiveLinkDiv=$("div.toplinediv div.linkler");
+var responsiveLink=$("div.toplinediv div.linkler div.link");
+var sosyalLinkDiv=$("div.toplinediv div.saglinkler div.butons");
+var sosyalLink=$("div.toplinediv div.saglinkler div.butons div.buton");
+var sosyalResponsiveLink=$("div.toplinediv div.saglinkler div.buton.responsive");
+var responsiveButon=$("div.toplinediv div.responsivediv");
+	
+responsiveButon.click(function(){	
+var durum=responsiveLinkDiv.css("display");
+if(durum=="none"){responsiveLinkDiv.animate({height:"show"},400);$(this).addClass("aktif");}
+else{responsiveLinkDiv.fadeOut(500);responsiveButon.removeClass("aktif");}
+sosyalLinkDiv.fadeOut(500);sosyalResponsiveLink.removeClass("aktif");
+});
+
+responsiveLink.click(function(){	
+var durum=responsiveLinkDiv.css("display");
+if(durum=="none"){}else{responsiveLinkDiv.fadeOut(500);$(this).removeClass("aktif");}	
+});
+
+sosyalResponsiveLink.click(function(){
+var durum=sosyalLinkDiv.css("display");
+if(durum=="none"){sosyalLinkDiv.animate({height:"show"},400);$(this).addClass("aktif");}
+else{sosyalLinkDiv.fadeOut(500);$(this).removeClass("aktif");}
+responsiveLinkDiv.fadeOut(500);responsiveButon.removeClass("aktif");	
+});
+
+$("div.toplinediv div.saglinkler div.butons div.buton").click(function(){
+sosyalLinks.fadeOut(500);
+});
+}
+
+
+</script>
+<meta charset="UTF-8">
+
+<style>
+div.slidediv{
+position:relative;
+z-index:2;
+overflow:hidden;
+	}
+div.slidediv div.container{
+	overflow:hidden;
+	}	
+div.slidediv div.slides{
+	position:relative;
+	overflow:hidden;
+	top:0px !important;
+	}
+div.slidediv div.slides div.slide{
+	position:relative;
+	overflow:hidden;
+	margin:0px !important;
+	padding:0px !important;
+	top:0px !important;
+	}
+	
+div.slidediv div.slides a{cursor:move !important;}	
+	
+div.slidediv div.slides div.slide div.gorsel{
+	position:absolute;
+	left:0px;right:0px;bottom:0px;top:0px;
+	z-index:1;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:cover;
+	overflow:hidden;
+	}	
+	
+div.slidediv div.slides div.slide div.video{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	z-index:5;
+	background-image:url(img/genel/play.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:100px auto;
+	}
+	
+div.slidediv div.slides div.slide div.video iframe{
+	width:100%;
+	height:100%;
+	}		
+	
+div.slidediv div.slides div.slide img{
+	width:100%;
+	height:auto;
+	}
+	
+div.slidediv div.slides div.slide div.slidetextdiv{
+	position:absolute;
+	z-index:9;
+	right:-99999px;
+	bottom:10px;
+	opacity:0;
+	max-width:700px !important;
+	}
+
+div.slidediv div.slides div.slide div.slidetextdiv div.slidetextic{
+	position:relative;
+	z-index:4;
+	padding:10px;
+	word-wrap:normal;
+	border-radius:2px;
+	overflow:hidden;
+	} 
+div.slidediv div.slides div.slide div.slidetextdiv div.slidetextic div.slidetextback{
+	position:absolute;
+	left:0px;right:0px;bottom:0px;top:0px;
+	background-color:#000;background-color:#003895;
+	opacity:0.9;
+	z-index:2;
+	}
+div.slidediv div.slides div.slide div.slidetextdiv:hover div.slidetextic div.slidetextback{opacity:1;}		
+div.slidediv div.slides div.slide div.slidetextdiv div.slidetextic div.texts{
+	position:relative;
+	z-index:8;
+	}
+div.slidediv div.slides div.slide div.slidetextdiv div.baslik{
+	font-size:18px;
+	font-family:"exodemibold","Arial Black",Arial;
+	color:#fff;
+	text-align:right;
+	}				
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik{
+	font-family:"exo",Arial !important;
+	color:#ccc;
+	font-size:16px;
+	text-align:right;
+	line-height:22px;
+	}	
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik.baslikvar{margin-top:5px;}	
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik p,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik span,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik li,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik div,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik ul{
+	margin:0px !important;
+	padding:0px !important;
+	line-height:22px !important;
+	color:#ccc !important;
+	font-family: 'exo',Arial !important;
+	font-size:16px !important;
+	font-size-adjust:normal;
+	text-wrap:normal;
+	text-align:right;
+	}	
+	
+div.slidediv div.icon{
+	height:60px;
+	width:100px;
+	background-size:70% auto;
+	background-repeat:no-repeat;
+	background-position:center;
+	position:absolute;
+	cursor:pointer;
+	z-index:9;
+	opacity:0;
+	
+	}	
+div.slidediv div.icon div.iconback{
+	background-color:#fff;
+	opacity:0.2;
+	position:absolute;
+	top:0px;bottom:3px;left:0px;right:0px;
+	
+	display:none;
+	}	
+div.slidediv div.icon.ileri{background-image:url(img/slide/ileri.png);right:0px;}
+div.slidediv div.icon.geri{background-image:url(img/slide/geri.png);left:0px;}	
+
+div.slidediv div.ustucgen{
+position:absolute;
+z-index:5;
+background-color:#fff;
+}
+
+div.slidediv div.downdiv{
+	position:absolute;
+	z-index:5;
+	bottom:0px;
+	padding:0 10px;
+	cursor:pointer;
+	}
+div.slidediv div.downdiv div.downback{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	opacity:0.5;
+	border-top-right-radius:4px;
+	border-top-left-radius:4px;
+	z-index:1;
+}		
+div.slidediv div.downdiv div.down{position:relative;z-index:2;width:40px;}	
+div.slidediv div.downdiv div.down img{width:100%;height:auto;opacity:0.6;}	
+div.slidediv div.downdiv:hover div.down img{opacity:1;}
+div.slidediv div.downdiv:hover div.downback{opacity:0.7;}
+
+div.slidediv div.pagination{
+	position:absolute;
+	z-index:9;
+	bottom:10px;
+	left:10px;
+	height:20px;
+	overflow:hidden;
+	}
+div.slidediv div.pagination div.page{
+	width:20px;
+	height:20px;
+	position:relative;
+	overflow:hidden;
+	margin-right:2px;
+	cursor:pointer;
+	}	
+div.slidediv div.pagination div.page div.ic{
+	width:5px;height:5px;margin:6.5px;
+	background-color:#ccc;background-color:#003895;
+	margin-right:20px;
+	border:1px solid #fff;
+	border-color:#fff;border-color:#FFFFFF;
+	}
+	
+div.slidediv div.pagination div.page.aktif{}
+div.slidediv div.pagination div.page.aktif div.ic{
+	border-color:#ccc;border-color:#003895;
+	background-color:#fff;background-color:#FFFFFF;
+	}	
+	
+div.slidediv div.pagination div.page div.back{
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#fff;
+	opacity:0.2;
+	}
+div.slidediv div.pagination div.page:hover div.back{opacity:0.4;}		
+div.coverdiv{position:absolute;top:0px;bottom:0px;left:0px;right:0px;}
+
+
+
+div.slidediv div.slide div.slidecover{
+	position:absolute;top:0px;bottom:0px;left:0px;right:0px;
+	opacity:0.4;
+	/*background-image:url(/img/genel/pattern-kare-siyah-20.png);
+	background-size:3px auto;*/
+	z-index:1;
+	}
+div.slidediv div.slidedivloading{
+	position:absolute;top:0px;bottom:0px;left:0px;right:0px;
+	background-color:#000;
+	opacity:0.6;
+	background-image:url(img/genel/loading-mavi.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:50px auto;
+	z-index:9;
+	}
+	
+div.slidediv.playing div.slides div.slide div.video{z-index:10;}
+div.slidediv.playing div.pagination{z-index:9;}			
+div.slidediv.playing div.icon{z-index:11 !important;}	
+	
+	
+	
+@media screen and (max-width:1024px){
+div.slidediv div.icon{width:50px; }
+div.slidediv div.slide div.slidecover{background-size:2px auto;}
+div.slidediv div.slides div.slide div.video{ background-size:80px auto;}
+	}	
+@media screen and (max-width:768px){
+div.slidediv div.slides div.slide div.video{ background-size:60px auto;}	
+
+div.slidediv div.downdiv{bottom:5px;right:5px;padding:5px;}
+div.slidediv div.downdiv div.downback{border-radius:5px;}		
+div.slidediv div.downdiv div.down{width:20px;}
+div.slidediv div.downdiv{bottom:0px;left:0px;right:0px;padding:0px;}
+div.slidediv div.downdiv div.downback{opacity:0.6;border-radius:0px;}		
+div.slidediv div.downdiv div.down{width:30px; margin:0 auto;}	
+div.slidediv div.downdiv div.down img{opacity:0.6;}	
+
+div.slidediv div.pagination{top:5px;left:5px;}
+div.slidediv div.pagination div.page{width:15px;height:15px;}	
+div.slidediv div.pagination div.page div.ic{margin:4px;margin-right:0px;}
+
+div.slidediv div.slides div.slide div.slidetextdiv{right:0px;left:0px;opacity:1;}
+div.slidediv div.slides div.slide div.slidetextdiv div.baslik{
+	font-size:13px;
+	text-align:center;
+	}				
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik{
+	font-size:12px;
+	text-align:center;
+	line-height:20px;
+	}
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik p,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik span,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik li,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik div,
+div.slidediv div.slides div.slide div.slidetextdiv div.icerik ul{
+	line-height:16px !important;
+	font-family: 'exo',Arial !important;
+	font-size:12px !important;
+	text-align:center;
+	}
+div.slidediv div.slides div.slide div.slidetextdiv{bottom:25px;}
+div.slidediv div.slides div.slide div.slidetextdiv{max-width:100%;width:100%;padding:0px;}
+div.slidediv div.slides div.slide div.slidetextdiv div.slidetextic{border-radius:0px;}		
+	
+	
+}
+@media screen and (max-width:480px){
+div.slidediv div.slides div.slide div.video{ background-size:60px auto;}	
+}
+
+@media screen and (max-width:320px){}
+@media all and (orientation:portrait){}
+@media all and (orientation:landscape){}
+
+
+</style>
+<div class="slidediv scrollContent">
+<div class="slidedivloading"></div>
+
+<div class="icon ileri" onclick="SlideYon('ileri')"><div class="iconback"></div></div>
+<div class="icon geri" onclick="SlideYon('geri')"><div class="iconback"></div></div>
+<div class="container">
+<div class="fl slides">
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/1.jpg" data-mimage="dosyalar/slide/1.jpg" data-pimage="left top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">SARL ACA ACHOUR</div>
+<div class="icerik texts baslikvar"><p> ESTABLISHED on 2011 </p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/2.jpg" data-mimage="dosyalar/slide/2.jpg" data-pimage="left top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">Constructions materials</div>
+<div class="icerik texts baslikvar"><p> Authorized Distributor of lafargehlocime </p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/9.jpg" data-mimage="dosyalar/slide/9.jpg" data-pimage="center center">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">TRANSPORTATION</div>
+<div class="icerik texts baslikvar"><p>Transport of Goods with Rich Fleet of Trucks</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/3.jpg" data-mimage="dosyalar/slide/3.jpg" data-pimage="right bottom">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">Authorized distributer</div>
+<div class="icerik texts baslikvar"><p> IVAL SPA </p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/4.jpg" data-mimage="dosyalar/slide/4.jpg" data-pimage="center bottom">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts"> Authorized distributer </div>
+<div class="icerik texts baslikvar"><p> IVECO </p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/5.jpg" data-mimage="dosyalar/slide/5.jpg" data-pimage="center bottom">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">Authorized distributer</div>
+<div class="icerik texts baslikvar"><p>FIAT professional</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/6.jpg" data-mimage="dosyalar/slide/6.jpg" data-pimage="left top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">Authorized distributer </div>
+<div class="icerik texts baslikvar"><p>NEW HOLLAND</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/7.jpg" data-mimage="dosyalar/slide/7.jpg" data-pimage="center top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">RENAULT TRUCKS</div>
+<div class="icerik texts baslikvar"><p>SEVICE AND SPARE PARTS DISTRIBUTOR</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/8.jpg" data-mimage="dosyalar/slide/8.jpg" data-pimage="center top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">RENAULT REPAIR WORKSHOP</div>
+<div class="icerik texts baslikvar"><p>MAINTENANCE PARTS & OIL</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/10.jpg" data-mimage="dosyalar/slide/10.jpg" data-pimage="center center">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">EQUIPMENT & MACHINES RENT</div>
+<div class="icerik texts baslikvar"><p>Heavy Equipments and Machines Rent</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/11.jpg" data-mimage="dosyalar/slide/11.jpg" data-pimage="center top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">CIVIL ENGINEERING</div>
+<div class="icerik texts baslikvar"><p>CONSTRUCTIONS PROJECTS</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+<a href="javascript:void(null)">
+<div class="fl slide" data-bimage="dosyalar/slide/12.jpg" data-mimage="dosyalar/slide/12.jpg" data-pimage="center top">
+<div class="gorsel"></div>
+<div class="slidecover"></div>
+<a href="javascript:void(null)">
+<div class="fl slidetextdiv">
+<div class="slidetextic">
+<div class="baslik texts">CONCRETE PUMP</div>
+<div class="icerik texts baslikvar"><p>Schwing Stetter Cnocrete Pump</p>
+</div>
+<div class="slidetextback"></div>
+</div>
+</div>
+<div class="cl"></div>
+</a>
+</div>
+</a>
+
+
+	
+<div class="cl"></div>
+</div>
+</div>
+<div class="fl pagination"></div>
+<div class="fl downdiv"><div class="down"><img src="img\slide\downok.gif"></div><div class="downback"></div></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+
+
+
+<script>
+var slidezaman=parseInt("5000");
+if(slidezaman<3000){slidezaman=3000;}
+
+
+$(document).ready(function(){
+SlideImageAyar();	
+SlideKurulum();	
+SlideDownClickEvent();
+SlideAyar();
+});
+
+$(window).load(function(){
+SlideAyar();
+SlidePageMouseEvent();	
+//SlideStart();
+VideoMouseEvent();
+DragKurulum();
+
+$("div.slidediv div.icon").hover(function(){$(this).stop().animate({"opacity":"1"},300);SlideStop();});
+$("div.slidediv div.icon").mouseleave(function(){$(this).stop().animate({"opacity":"0.1"},300);if(SlideDurum==false){SlideStart();}});
+$("div.slidediv div.pagination div.page").eq(0).click();
+$("div.slidediv div.slidedivloading").fadeOut();
+})
+
+
+
+$(window).resize(function(){
+SlideImageAyar();	
+SlideStop();
+SlideScroll=0;
+SlideAyar();
+SlideStart();
+});
+
+$(window).scroll(function(){SlideDownScrollEvent();});	
+var SlideScroll=0;
+var SlideInterval=null;
+var SlideBeklet=null;
+var SlideDurum=false;
+var SlideAktifIndex=-1;
+var SlideVideoIndex=-1;
+
+var YoutubeIframeKodu="<iframe frameborder='0' src='https://www.youtube.com/embed/xxx?a=b&autoplay=1&autohide=1&iv_load_policy=3&loop=0&modestbranding=1&rel=0&theme=light'></iframe>";
+
+function VideoMouseEvent(){
+$("div.slidediv div.slides div.slide div.video").click(function(){
+$(this).closest("div.slidediv").addClass("playing");
+SlideStop();		
+var VideoID=$(this).attr("data-video-id");
+$(this).html(YoutubeIframeKodu.replace("xxx",VideoID));		
+});	
+}
+
+
+function SlideWindowCalc(){
+$("body").append("<div class='coverdiv windowsize'></div>");	
+WW=parseInt($("div.windowsize").outerWidth());	
+WH=parseInt($("div.windowsize").outerHeight());
+$("div.windowsize").remove();
+if(WH<400){WH=400;}
+}
+
+function SlideDownClickEvent(){
+$("div.slidediv div.downdiv").click(function(){
+var SlideDivH=parseInt($("div.toplinediv").outerHeight());
+var TopliveDivH=parseInt($("div.slidediv").outerHeight());
+var WHScrollEventH=	SlideDivH+TopliveDivH;
+$("body").animate({scrollTop:WHScrollEventH},500);
+});	
+}
+
+function SlideDownScrollEvent(){
+var BodyScrollTop=parseInt($(window).scrollTop());
+var DownDiv=$("div.slidediv div.downdiv");
+var DownImage=$("div.slidediv div.downdiv div.down img");
+var DownImageSrc=DownImage.attr("src");
+var DownImageNewSrc=DownImageSrc;
+if(BodyScrollTop>10){DownImageNewSrc=DownImageNewSrc.replace("gif","png");DownDiv.stop().animate({"opacity":"0.2"},600);}else{DownImageNewSrc=DownImageNewSrc.replace("png","gif");DownDiv.stop().animate({"opacity":"1"},600);}	
+DownImage.attr("src",DownImageNewSrc);
+}
+
+function SlidePageMouseEvent(){
+var SlideDotW=parseInt($("div.slidediv div.pagination div.page div.ic").outerWidth());
+$("div.slidediv div.pagination div.page").hover(function(){
+$(this).find("div.back").stop().animate({"left":""+SlideDotW+"px","right":""+SlideDotW+"px","top":""+SlideDotW+"px","bottom":""+SlideDotW+"px"})	
+});	
+$("div.slidediv div.pagination div.page").mouseleave(function(){
+$(this).find("div.back").stop().animate({"left":"0px","right":"0px","top":"0px","bottom":"0px"})	
+});	
+$("div.slidediv div.pagination div.page").click(function(){	
+SlideFunc($(this).index());
+});	
+}
+
+function SlideKurulum(){
+SlideWindowCalc();
+$("div.headerdiv div.ic.siteortala").removeClass("siteortala").addClass("slidevar");
+$("div.toplinediv div.ic.siteortala").removeClass("siteortala").addClass("slidevar");
+var SlideCount=parseInt($("div.slidediv div.slides div.slide").length);
+	
+for(var s=0 ; s<SlideCount ; s++){
+$("div.slidediv div.pagination").append("<div class='fl page'><div class='ic'></div><div class='back'></div></div>");
+}
+$("div.slidediv div.pagination").append("<div class='cl'></div>");
+$("div.slidediv div.pagination div.page").eq(0).addClass("aktif");
+var downdiwW=parseInt($("div.slidediv div.downdiv").outerWidth());;
+var downdiwL=parseInt((WW-downdiwW)/2);
+if(WW>=768){
+$("div.slidediv div.downdiv").css({"left":""+downdiwL+"px"});
+}	
+}
+
+
+var option={
+axis:"x",
+revert:true,
+start:function(event,ui){SlideStop();},
+stop:function(event,ui){},
+drag:function(event,ui){
+var Left=ui.position.left;
+var LeftP=Math.abs(Left)
+var AminateStartPos=parseInt(WW/3);	
+if(Left<0 && LeftP>AminateStartPos){SlideYon('ileri');return false;}
+else if(Left>0 && LeftP>AminateStartPos){SlideYon('geri');return false;}	
+}	
+}
+function DragKurulum(){
+SlideWindowCalc();
+$("div.slidediv div.slides").draggable(option);	
+SlideStart();
+}
+
+
+
+function SlideImageAyar(){
+SlideWindowCalc();
+$("div.slidediv div.slides div.slide").each(function(index, element) {
+var Bimage=$(this).attr("data-Bimage");    
+var Mimage=$(this).attr("data-Mimage");
+var Pimage=$(this).attr("data-Pimage");
+if(WW<769){
+$(this).find("div.gorsel").css({"background-image":"url("+Mimage+")"});	
+}else{
+$(this).find("div.gorsel").css({"background-image":"url("+Bimage+")"});		
+} 
+$(this).find("div.gorsel").css({"background-position":""+Pimage+""});
+});	
+}
+
+function SlideAyar(){
+SlideWindowCalc();
+var SlideCount=parseInt($("div.slidediv div.slides div.slide").length);
+var TopliveDivH=parseInt($("div.toplinediv").outerHeight());
+var slideMaxWidth=WW*SlideCount;
+var slideHeight=WH-TopliveDivH;	
+if(WW<=768){
+var LogoH=parseInt($("div.logodiv").outerHeight());
+slideHeight=slideHeight-LogoH+10;	
+var PaginationW=parseInt($("div.slidediv div.pagination").outerWidth());
+var PaginationPageMR=parseInt($("div.slidediv div.pagination div.page").css("margin-right"));
+var PaginationML=parseInt((WW-PaginationW)/2)-PaginationPageMR;
+$("div.slidediv div.pagination").css({"margin-left":""+PaginationML+"px"});
+}
+
+
+SlideScroll=-WW;
+$("div.slidediv div.slides div.slide").eq(0).addClass("aktif");
+$("div.slidediv div.container").css({"width":""+WW+"px"});
+$("div.slidediv div.slides").css({"width":""+slideMaxWidth+"px"});
+$("div.slidediv div.slides div.slide").css({"width":""+WW+"px","height":""+slideHeight+"px"});
+$("div.slidediv div.icon").css({"height":""+slideHeight+"px"});
+$("div.slidediv").css({"width":""+WW+"px","height":""+slideHeight+"px"});
+
+var textcount=parseInt($("div.slidediv div.slide div.slidetextdiv").length);
+if(textcount>0){		
+$("div.slidediv div.slide").each(function(index, element) {	
+var textdiv=$(this).find("div.slidetextdiv");
+if(textdiv.length>0){
+var textdivW=parseInt(textdiv.outerWidth());
+var textdivH=parseInt(textdiv.outerHeight());
+$(this).attr({"data-textdivW":""+textdivW+"","data-textdivH":""+textdivH+""});
+if(WW<=768){
+var DownDivH=parseInt($("div.slidediv div.downdiv").outerHeight());
+var ThisImageH=slideHeight-textdivH-DownDivH;
+$(this).find("div.gorsel").css({"height":""+ThisImageH+"px"});
+}
+var TextDivR=textdivW+WW;
+textdiv.css({"right":""+TextDivR+"px"});
+}    
+});	
+}
+}
+
+function SlideStart(){SlideInterval=setInterval(SlideYon,slidezaman);SlideDurum=true;}
+function SlideStop(){clearInterval(SlideInterval);SlideDurum=false;}
+
+function SlideYon(yon){
+var indx=0;	
+var SlideCount=parseInt($("div.slidediv div.slides div.slide").length);
+if(yon==null || yon==""){yon="ileri";}
+if(yon=="ileri"){
+indx=SlideAktifIndex+1;
+}else{
+indx=SlideAktifIndex-1;
+$("div.slidediv div.icon.geri").css({"opacity":"0.1"});
+}	
+SlideFunc(indx);
+}
+
+function SlideFunc(indx){	
+SlideWindowCalc();
+$("div.slidediv div.icon").css({"opacity":"1.0"});
+var SlideCount=parseInt($("div.slidediv div.slides div.slide").length);
+var slideMaxWidth=WW*SlideCount;
+if(indx>=SlideCount || indx<0){indx=0;}
+SlideScroll=indx*WW;	
+SlideAktifIndex=indx;
+var textcount=parseInt($("div.slidediv div.slide div.slidetextdiv").length);
+if(textcount>0 && WW>=768){
+$("div.slidediv div.slides div.slide").each(function(index, element) {
+var TextDiv=$(this).find("div.slidetextdiv");	
+var TextDivW=parseInt($(this).attr("data-textdivW"));
+var TextDivH=parseInt($(this).attr("data-textdivH"));
+var TextDivR=TextDivW+WW;
+TextDiv.css({"right":""+TextDivR+"px","opacity":"0"});  
+});
+}
+		
+$("div.slidediv div.container").animate({scrollLeft:SlideScroll},500);
+$("div.slidediv div.slides div.slide").removeClass("aktif");
+$("div.slidediv div.pagination div.page").removeClass("aktif");
+var aktifSlide=$("div.slidediv div.slides div.slide").eq(SlideAktifIndex);
+var aktifPage=$("div.slidediv div.pagination div.page").eq(SlideAktifIndex);
+aktifSlide.addClass("aktif");
+aktifPage.addClass("aktif");
+
+var textcount=parseInt($("div.slidediv div.slide").eq(SlideAktifIndex).find("div.slidetextdiv").length);
+if(textcount>0){
+var TextDivH=parseInt($("div.slidediv div.slide").eq(SlideAktifIndex).attr("data-textdivH"));
+var TextDivW=parseInt($("div.slidediv div.slide").eq(SlideAktifIndex).attr("data-textdivW"));
+var AktifSlideTextDiv=$("div.slidediv div.slide").eq(SlideAktifIndex).find("div.slidetextdiv");
+var AktifSkideTextDivW=parseInt(AktifSlideTextDiv.outerWidth());
+var AktifSkideTextDivR=10;
+
+if(WW>=768){
+AktifSlideTextDiv.delay(700).animate({"right":""+AktifSkideTextDivR+"px","opacity":"1"},800);
+}else{
+AktifSlideTextDiv.delay(700).animate({"right":"0px","opacity":"1"},800);	
+}
+
+}
+$("div.slidediv div.slides div.slide").eq(SlideAktifIndex).find("div.slidedivloading").animate({"background-size":"15px auto"},500);
+
+//video
+if($("div.slidediv.playing").length>0){
+$("div.slidediv div.slides div.slide div.video iframe").remove();
+$("div.slidediv").removeClass("playing");
+if(SlideDurum==false){SlideStart();}	
+}
+
+}
+
+</script>
+<style>
+div.anasayfa{}
+div.listeler{
+	margin-bottom:20px;
+	position:relative;
+	z-index:2;
+	}
+div.listebaslik{
+padding:5px 10px;
+position:relative;
+margin:20px 0;
+position:relative;
+z-index:4;
+border-radius:5px;
+background-image:url(img/genel/slide-opacity10.png);
+background-size:20px auto;
+}
+
+div.listebaslik.mavi{
+padding:0px;
+width:100%;
+clear:both;
+margin:0px;
+margin-bottom:10px;
+background-color:#003895;
+background-image:none;
+border-radius:0px;
+}	
+	
+div.listebaslik:hover{}	
+div.listebaslik div.basliktext{
+	line-height:50px;
+	font-family:"exodemibold","Arial Black",Arial;
+	font-size:20px;
+	color:#333;color:#333333;
+	overflow:hidden;
+	text-align:left;
+	margin:0 10px;
+	}
+div.listebaslik.mavi div.basliktext{
+	color:#333;color:#FFFFFF;
+	margin-left:20px;
+	font-size:15px;
+	}	
+div.listebaslik div.baslikaciklama{display:none;}	
+
+div.listebaslik div.selectdiv{
+	width:280px;
+	margin-top:12px;
+	margin-left:20px;
+	background-color:#FFFFFF;
+	}	
+div.listebaslik div.selectdiv{
+	margin:0px;
+	margin-top:10px;
+	margin-right:10px;
+	}	
+div.listebaslik div.selectdiv select{
+	border:none;
+	border:0px;
+	background-color:transparent;
+	height:30px;
+	padding:0 10px;
+	font-size:15px;
+	font-family:'exo',Arial;
+	cursor:pointer;
+	width:280px;
+	border-radius:5px;
+	cursor:pointer;
+	background-color:#fff;background-color:#FFFFFF;
+	color:#333;color:#333333;
+	border-radius:4px;
+	}
+	
+div.listebaslik div.selectdiv select:hover{}		
+	
+div.listeler div.liste{}	
+div.listeler div.liste div.list{
+	height:130px;
+	overflow:hidden;
+	cursor:pointer;
+	border-radius:3px;
+	}
+div.listeler div.liste div.list div.sag{overflow:hidden;}
+div.listeler div.liste div.list div.sol{overflow:hidden;}		
+div.listeler div.liste div.list div.gorsel{
+	height:130px;
+	width:150px;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:60% auto;
+	background-image:url('img/genel/noimage.png');
+	background-color:#ebebeb;
+	position:relative;
+        top: 0px;
+        left: 0px;
+    }
+div.listeler div.liste div.list div.gorsel div.hoverdiv{
+	position:absolute;
+	background-position:center;
+	background-repeat:no-repeat;
+	bottom:0px;top:0px;left:0px;right:0px;
+	z-index:2;
+	background-size:cover;
+}	
+div.listeler div.liste div.list div.gorsel div.zoomdiv{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	left:0px;
+	top:0px;
+	z-index:3;
+	display:none;
+	}	
+div.listeler div.liste div.list div.gorsel:hover div.zoomdiv{
+	display:block;
+	}		
+div.listeler div.liste div.list div.gorsel div.zoomdiv div.plus{
+	font-family:'Arista';
+	font-size:50px;
+	margin:0 auto;
+	text-align:center;
+	color:#000;
+	background-image:url(img/genel/silik-siyah-opacity10.png);
+	z-index:5;
+	border:2px solid #fff;
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:-20px;
+	margin-right:40px;
+	opacity:0;
+	height:90px;line-height:90px;<!-- -->
+	}
+div.listeler div.liste div.list div.gorsel:hover div.zoomdiv div.plus{display:block;}	
+div.listeler div.liste div.list div.gorsel div.zoomdiv div.plus:hover{
+	background-image:url(img/genel/silik-siyah-opacity50.png);
+	color:#fff;
+	}	
+div.listeler div.liste div.list div.gorsel.video div.zoomdiv div.plus{
+	text-indent:9999px;
+	}
+div.listeler div.liste div.list div.gorsel div.playicon{
+	background-image:url(img/genel/play.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	position:absolute;
+	top:0px;bottom:0px;left:0px;right:0px;
+	z-index:8;
+	}		
+	
+div.listeler div.liste div.list div.tarih{display:none;}
+div.listeler div.liste div.list{}
+div.listeler div.liste div.list div.baslik{
+	height:35px;
+	line-height:35px;
+	padding:0 10px;
+	background-color:#c8c6c6;
+	font-family:"exodemibold","Arial Black",Arial;
+	font-size:14px;
+	color:#262a2d;
+	overflow:hidden;
+	}
+div.listeler div.liste div.list:hover div.baslik{
+	background-color:#adadad;
+	}	
+div.listeler div.liste div.list div.altbaslik{
+	line-height:22px;
+	overflow:hidden;
+	background-color:#efeeee;
+	overflow:hidden;
+	padding:5px 10px;
+	text-align:justify;
+	color:#757474;
+	}
+div.listeler div.liste div.list div.altbaslik div,
+div.listeler div.liste div.list div.altbaslik span,
+div.listeler div.liste div.list div.altbaslik ul,
+div.listeler div.liste div.list div.altbaslik li,
+div.listeler div.liste div.list div.altbaslik a,
+div.listeler div.liste div.list div.altbaslik td,
+div.listeler div.liste div.list div.altbaslik ol{
+	line-height:22px !important;
+	font-size:12px !important;
+	font-family:'exo',Arial !important;
+	color:#444 !important;
+	padding:0px !important;
+	background-color:transparent !important;
+	font-weight:normal !important;	
+}
+	
+div.listeler div.liste div.list:hover div.altbaslik{background-color:#fff;}	
+	
+div.listeler div.liste div.list div.altbaslik p,
+div.listeler div.liste div.list div.altbaslik br,
+div.listeler div.liste div.list div.altbaslik span,
+div.listeler div.liste div.list div.altbaslik li,
+div.listeler div.liste div.list div.altbaslik div{
+	margin:0px !important;
+	padding:0px !important;
+	line-height:22px !important;
+	text-align:justify !important;
+	color:#757474 !important;
+	font-size:12px !important;
+	font-family:'exo',Arial !important;
+	
+	}	
+div.listeler div.liste div.list div.saat{display:none;}
+
+
+
+	
+/*___________________________ liste haber3 ______________________________*/
+
+div.listeler div.liste.haber3{}	
+div.listeler div.liste.haber3 div.list{
+	width:33.3%;
+	overflow:hidden;
+	cursor:pointer;
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+	}
+div.listeler div.liste.haber3 div.list:hover{
+-webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.20);
+-moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.20);
+box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.20);
+}		
+div.listeler div.liste.haber3 div.list.st3{margin-right:0px;}	
+div.listeler div.liste.haber3 div.list div.altbaslik,
+div.listeler div.liste.haber3 div.list div.altbaslik p,
+div.listeler div.liste.haber3 div.list div.altbaslik br,
+div.listeler div.liste.haber3 div.list div.altbaslik span,
+div.listeler div.liste.haber3 div.list div.altbaslik li,
+div.listeler div.liste.haber3 div.list div.altbaslik div{
+	font-size:13px !important;
+	}	
+	
+
+/*___________________________ liste uclu ______________________________*/
+
+div.listeler div.liste.uclu{}	
+div.listeler div.liste.uclu div.list{
+	width:33.33%;
+	overflow:hidden;
+	cursor:pointer;
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+	}
+div.listeler div.liste.uclu div.list.st3{margin-right:0px;}	
+
+/*___________________________ liste dortlü ______________________________*/
+
+div.listeler div.liste.dortlu{}	
+div.listeler div.liste.dortlu div.list{
+	width:25%;
+	overflow:hidden;
+	cursor:pointer;
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+	}
+div.listeler div.liste.dortlu div.list.st4{margin-right:0px;}	
+
+/*___________________________ liste video ______________________________*/
+
+div.listeler div.liste.video{}	
+div.listeler div.liste.video div.list{
+	width:33.33%;
+	overflow:hidden;
+	cursor:pointer;
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+	}
+div.listeler div.liste.video div.list.st3{margin-right:0px;}		
+div.listeler div.liste.video div.list div.gorsel div.zoom{
+	background-color:transparent;
+	background-image:url(/img/genel/play-siyah-100.png);
+	background-size:60px auto;
+	opacity:0.4;
+	display:block;
+	}
+div.listeler div.liste.video div.list div.gorsel div.hoverdiv{}		
+div.listeler div.liste.video div.list:hover div.gorsel div.zoom{opacity:0.8;background-image:url(/img/genel/play-siyah-100-hover.png);}			
+	
+	
+/**/
+
+div.listeler div.sayfadiv{
+background-color:#f4f4f4;
+padding:10px;
+padding-bottom:9px; padding-right:9px;
+}
+div.listeler div.sayfadiv div.sayfalama{
+margin-top:10PX;
+}	
+div.listeler div.sayfadiv div.sayfalama div.sayfa,
+div.listeler div.sayfadiv div.sayfalama div.buton{
+height:40px;
+width:40px;
+line-height:40px;
+background-color:#fff;
+border:1px solid #ccc;
+text-align:center;
+font-size:14px;
+color:#444;
+margin-right:1px;
+margin-bottom:1px;
+font-family:'bebas';
+	}
+
+
+div.listeler div.sayfadiv div.sayfalama div.sayfa.aktif,
+div.listeler div.sayfadiv div.sayfalama div.sayfa.aktif:hover{
+opacity:1.0;
+filter:alpha(opacity=100);
+color:#fff;
+background-color:#555;
+border:1px solid #555;
+}
+div.listeler div.sayfadiv div.sayfalama div.sayfa:hover,
+div.listeler div.sayfadiv div.sayfalama div.buton:hover{
+color:#444;
+background-color:#ebebeb;
+}
+
+div.listeler div.sayfadiv div.sayfalama div.buton.pasif,
+div.listeler div.sayfadiv div.sayfalama div.buton.pasif:hover{	
+opacity:0.4;
+cursor:default;
+background-color:#fff;
+}	
+	
+div.listeler div.sayfadiv div.sayfalama div.buton{
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:25px auto;
+	}	
+div.listeler div.sayfadiv div.sayfalama div.buton.ileri{background-image:url(img/icon/sayfa-ileri.png);}
+div.listeler div.sayfadiv div.sayfalama div.buton.geri{background-image:url(img/icon/sayfa-geri.png);}
+	
+div.listeler div.liste{}
+div.listeler div.kategorilistediv{}
+div.listeler div.kategorilistediv div.ic{
+	margin-right:20px;
+	background-color:#fff;
+	border-radius:5px;
+	padding-bottom:10px;
+	overflow:hidden;
+	
+	}	
+div.listeler div.kategorilistediv div.kategorilistebaslik{
+	line-height:40px;
+	font-family:'bebas';
+	font-size:20px;
+	padding:0 10px;
+	background-color:#ebebeb;
+	border-bottom:1px solid #ccc;
+	color:#333;
+	}
+div.listeler div.kategorilistediv div.kategorilisteler{}
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste{
+	padding:0 10px;
+	position:relative;
+	cursor:pointer;
+	}
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste div.back{
+position:absolute;
+top:0px;bottom:0px;right:0px;left:0px;
+background-color:#000;
+opacity:0.1;
+display:none; 	
+}	
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste:hover div.back{display:block;}	
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste div.icon{}
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste div.text{
+	line-height:35px;
+	color:#666;
+	font-family:'exo',Arial;
+	font-size:13px;
+	
+	}
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste.aktif{
+	background-color:#003895;
+	}
+div.listeler div.kategorilistediv div.kategorilisteler div.kategoriliste.aktif div.text{
+	color:#FFFFFF;
+	}			
+	
+@media screen and (max-width:1024px){
+div.listeler div.liste.haber div.list{width:50%;}
+
+div.listeler div.liste.video div.list.st2{margin-right:0px;}
+div.listeler div.liste.video div.list.st3{margin-right:20px;}	
+	
+div.listeler div.liste.haber3 div.list.st2{margin-right:0px;}
+div.listeler div.liste.haber3 div.list.st3{margin-right:20px;}
+
+div.listeler div.listebaslik{padding:0 15px;clear:both;}
+div.listeler div.listebaslik div.basliktext{line-height:30px;height:30px;font-size:25px;padding:15px 0 15px 0;}	
+div.listebaslik div.selectdiv{width:220px;margin-left:15px;margin-top:10px;position:absolute;right:15px;}	
+div.listebaslik div.selectdiv select{width:220px;font-size:14px;height:30px; margin-top:0px;}
+div.listebaslik div.selectdiv{display:block;}
+div.listeler div.kategorilistediv{display:none;}
+div.listeler div.liste div.list div.baslik{font-family:'exo',Arial;font-size:12px;}	
+}	
+	
+	
+@media screen and (max-width:768px){
+div.listeler div.listebaslik div.basliktext{font-family:"exodemibold","Arial Black",Arial;font-size:20px;padding:10px 0 10px 0;}	
+div.listebaslik{clear:both;}
+div.listeler div.liste.dortlu div.list.st4{margin-right:20px;}
+div.listeler div.liste.dortlu div.list.st2{margin-right:0px;}
+div.listeler div.liste.uclu div.list.st3{margin-right:20px;}
+div.listeler div.liste.uclu div.list.st2{margin-right:0px;}	
+}
+@media screen and (max-width:480px){
+div.listebaslik div.selectdiv{
+	margin:0px;
+	position:relative;
+	height:40px;
+	width:100%;
+	margin-bottom:10px;
+	margin-left:15px;
+	}	
+div.listebaslik div.selectdiv select{position:absolute;width:100%;font-size:14px;left:0px;right:0px;background-color:#fff;color:#333; height:40px;}		
+div.listeler div.liste.haber3 div.list{margin-right:0px;}
+div.listeler div.liste.uclu div.list{margin-right:20px;margin-left:20px;}
+div.listeler div.liste.dortlu div.list{margin-right:20px;margin-left:20px;}
+}
+@media all and (orientation:portrait){}
+@media all and (orientation:landscape){}
+
+	
+
+</style>
+
+<div class="listeler siteortala scrollContent" id="listelerurun">
+
+<!--start listebaslik-->
+<div class="fl listebaslik">
+<a href=""><div class="fl basliktext">Activities</div>
+    </a>
+
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+<!--end listebaslik-->
+
+
+<div class="liste dortlu">
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-12.htm">
+<div class="list " id="list12">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/11.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik"> Constructions materials </div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-13.htm">
+<div class="list st2 st5 " id="list13">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/12.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Authorized distributer IVECO </div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-14.htm">
+<div class="list st3 " id="list14">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/13.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Authorized distributer FIAT professional </div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-15.htm">
+<div class="list st2 st4 st8 " id="list15">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/14.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Authorized distributer New Holland</div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-16.htm">
+<div class="list st7 " id="list16">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/15.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Authorized distributer IVAL SPA</div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-17.htm">
+<div class="list st2 st3 st6 " id="list17">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/16.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">IVECO service and Spare parts distributor </div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-18.htm">
+<div class="list st5 " id="list18">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/17.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Renault Parts & Oil</div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-19.htm">
+<div class="list st2 st4 " id="list19">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/18.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Renault Trucks Service</div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-20.htm">
+<div class="list st3 " id="list20">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/19.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik"> Authorized Repair Workshop </div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-21.htm">
+<div class="list st2 " id="list21">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/20.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik"> Civil Engineering </div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\kat-22.htm">
+<div class="list " id="list22">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/21.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Transportation and Renting</div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<!--start list-->
+<a href="sayfalar\liste\params\tip-urun\products.htm">
+<div class="list st2 st4 " id="Div1">
+<div class="fl sol">
+<div class="gorsel"><div class="hoverdiv" style="background-image:url(dosyalar/p/48.jpg);"></div><div class="zoomdiv"><div class="plus ">+</div></div></div>
+</div>
+<div class="fl sag">
+<div class="baslik">Schwing Stetter Pump</div>
+<div class="fl altbaslik"></div>
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+</div>
+</a>
+<!--end list-->
+
+<div class="cl"></div>
+</div>
+</div>
+
+</div>
+<!--end listeler-->
+
+
+
+<script>
+
+
+
+$(document).ready(function(){
+ListeAyar();
+ListeGorselHover();	
+})
+$(window).load(function(){
+ListeAyar();
+	
+})
+$(window).resize(function(){
+ListeAyar();
+ListeGorselHover();	
+});
+
+
+
+function ListeAyar(){
+var WW=parseInt($("div.listeler div.liste").outerWidth());
+var WindowW=parseInt($(window).width());
+var tip="hizmet";
+var gosterim="dortlu";
+
+if(WindowW<=1024){$("div.listeler div.listebaslik").removeClass("fl");}else{
+$("div.listeler div.listebaslik").addClass("fl");	
+}
+	
+// tek satir ayar	
+var teklistsay=parseInt($("div.liste.tek").length);
+if(teklistsay>0){
+WW=parseInt($("div.listeler div.liste.tek").outerWidth());	
+var listeW=parseInt($("div.liste.tek div.list").eq(0).outerWidth());
+var listeH=parseInt($("div.liste.tek div.list").eq(0).outerHeight());
+var baslikH=parseInt($("div.liste.tek div.list div.baslik").eq(0).outerHeight());
+var solW=parseInt($("div.liste.tek div.list div.sol").eq(0).outerWidth());
+var AltbaslikPaddingLeft=parseInt($("div.liste.tek div.list div.altbaslik").eq(0).css("padding-left"));	
+var AltbaslikPaddingRight=parseInt($("div.liste.tek div.list div.altbaslik").eq(0).css("padding-right"));	
+var sagW=listeW-solW;
+var altbaslikH=listeH-baslikH;
+var altbaslikW=sagW-AltbaslikPaddingRight-AltbaslikPaddingLeft;
+$("div.liste.tek div.list div.sag").css({"width":""+sagW+"px"});
+$("div.liste.tek div.list div.altbaslik").css({"height":""+altbaslikH+"px","width":""+altbaslikW+"px"});
+}
+
+
+var haber3listsay=parseInt($("div.liste.haber3").length);
+if(haber3listsay>0){
+WW=parseInt($("div.listeler div.liste.haber3").outerWidth());	
+var ListeMR=parseFloat($("div.liste.haber3 div.list").css("margin-right"));
+var listeW=parseInt((WW-(ListeMR*2))/3);
+if(WindowW<=1024){listeW=parseFloat((WW-ListeMR)/2);}
+if(WindowW<=480){listeW=WW;}
+$("div.liste.haber3 div.list").css({"width":""+listeW+""});
+var ResimW=listeW;
+var ResimH=parseFloat((listeW*3)/6);
+var ListeBaslikH=parseInt($("div.liste.haber3 div.list div.baslik").outerHeight());
+var AltBaslikH=parseInt($("div.liste.haber3 div.list div.altbaslik").css("line-height"))*5;
+var listeH=ResimH+ListeBaslikH+AltBaslikH;
+var AltbaslikPadding=parseInt($("div.liste.haber3 div.list div.altbaslik").css("padding-left"))*2;
+var altBaslikW=listeW-AltbaslikPadding;
+var PlusH=ResimH-(parseInt($("div.liste.haber3 div.list div.gorsel div.zoomdiv div.plus").css("margin-top"))*2);
+$("div.liste.haber3 div.sag").css({"width":""+listeW+"px"});
+$("div.liste.haber3 div.list").css({"height":""+listeH+"px","width":""+listeW+"px"});	
+$("div.liste.haber3 div.list div.gorsel").css({"height":""+ResimH+"px","width":""+ResimW+"px"});
+$("div.liste.haber3 div.list div.altbaslik").css({"height":""+AltBaslikH+"px","width":""+altBaslikW+"px"});
+$("div.liste.haber3 div.list div.gorsel div.zoomdiv div.plus").css({"height":""+PlusH+"px","line-height":""+PlusH+"px"});
+}
+
+var uclulistsay=parseInt($("div.liste.uclu").length);
+if(uclulistsay>0){
+WW=parseInt($("div.listeler div.liste.uclu").outerWidth());	
+var ListeMR=parseInt($("div.liste.uclu div.list").eq(0).css("margin-right"));
+var ListeML=parseInt($("div.liste.uclu div.list").eq(0).css("margin-left"));
+var listeW=parseFloat((WW-(ListeMR*2))/3);
+if(WindowW<768){listeW=parseFloat((WW-((ListeMR+ListeML)*1))/2);}
+if(WindowW<480){listeW=parseFloat(WW-(ListeMR+ListeML));}
+
+var ResimW=listeW;
+var ResimH=parseInt((listeW*3)/4);
+if(tip=="kisi"){ResimH=parseInt((listeW*4)/3);}
+var ListeBaslikH=parseInt($("div.liste.uclu div.list div.baslik").outerHeight());
+var listeH=ResimH+ListeBaslikH;
+var PlusH=ResimH-(parseInt($("div.liste.uclu div.list div.gorsel div.zoomdiv div.plus").css("margin-top"))*2);
+$("div.liste.uclu div.sag").css({"width":""+listeW+"px"});
+$("div.liste.uclu div.list").css({"height":""+listeH+"px","width":""+listeW+"px"});	
+$("div.liste.uclu div.list div.gorsel").css({"height":""+ResimH+"px","width":""+ResimW+"px"});
+$("div.liste.uclu div.list div.gorsel div.zoom div.plus").css({"line-height":""+ResimH+"px"});
+$("div.liste.uclu div.list div.gorsel div.zoomdiv div.plus").css({"height":""+PlusH+"px","line-height":""+PlusH+"px"});
+}
+
+
+var dortlulistsay=parseInt($("div.liste.dortlu").length);
+if(dortlulistsay>0){
+WW=parseInt($("div.listeler div.liste.dortlu").outerWidth());	
+var ListeMR=parseInt($("div.liste.dortlu div.list").eq(0).css("margin-right"));
+var ListeML=parseInt($("div.liste.dortlu div.list").eq(0).css("margin-left"));
+var listeW=parseFloat((WW-((ListeMR+ListeML)*3))/4);
+if(WindowW<768){listeW=parseFloat((WW-((ListeMR+ListeML)*1))/2);}
+if(WindowW<480){listeW=parseFloat(WW-(ListeMR+ListeML));}
+
+var ResimW=listeW;
+var ResimH=parseInt((listeW*3)/4);
+if(tip=="kisi" || tip=="aday"){ResimH=parseInt((listeW*4)/3);}
+var ListeBaslikH=parseInt($("div.liste.dortlu div.list div.baslik").outerHeight());
+var listeH=ResimH+ListeBaslikH;
+var PlusH=ResimH-(parseInt($("div.liste.dortlu div.list div.gorsel div.zoomdiv div.plus").css("margin-top"))*2);
+$("div.liste.dortlu div.sag").css({"width":""+listeW+"px"});
+$("div.liste.dortlu div.list").css({"height":""+listeH+"px","width":""+listeW+"px"});	
+$("div.liste.dortlu div.list div.gorsel").css({"height":""+ResimH+"px","width":""+ResimW+"px"});
+$("div.liste.dortlu div.list div.gorsel div.zoom div.plus").css({"line-height":""+ResimH+"px"});
+$("div.liste.dortlu div.list div.gorsel div.zoomdiv div.plus").css({"height":""+PlusH+"px","line-height":""+PlusH+"px"});
+}
+
+var videolistsay=parseInt($("div.liste.video").length);
+if(videolistsay>0){
+WW=parseInt($("div.listeler div.liste.video").outerWidth());	
+var ListeMR=parseInt($("div.liste.video div.list").eq(0).css("margin-right"));
+var listeW=parseFloat((WW/3)-ListeMR);
+if(WindowW<=1024){listeW=parseFloat((WW-ListeMR)/2);}
+if(WindowW<=768){listeW=WW;}
+var ResimW=listeW;
+var ResimH=parseInt((listeW*9)/16);
+var ListeBaslikH=parseInt($("div.liste.video div.list div.baslik").outerHeight());
+var listeH=ResimH+ListeBaslikH;
+var PlusH=ResimH-(parseInt($("div.liste.video div.list div.gorsel div.zoomdiv div.plus").css("margin-top"))*2);
+$("div.liste.video div.sag").css({"width":""+listeW+"px"});
+$("div.liste.video div.list").css({"height":""+listeH+"px","width":""+listeW+"px"});	
+$("div.liste.video div.list div.gorsel").css({"height":""+ResimH+"px","width":""+ResimW+"px"});
+$("div.liste.video div.list div.gorsel div.zoom div.plus").css({"line-height":""+ResimH+"px"});
+$("div.liste.video div.list div.gorsel div.zoomdiv div.plus").css({"height":""+PlusH+"px","line-height":""+PlusH+"px"});
+}
+
+
+}
+
+function ListeGorselHover(){
+var fSize=parseInt($("div.listeler div.liste div.list div.gorsel div.zoom div.plus").css("font-size"));
+var fAnimatedSize=parseInt(fSize/2);
+		
+$("div.listeler div.liste div.list").hover(function(){
+var HoverW=parseInt($(this).find("div.hoverdiv").outerWidth());	
+var HoverH=parseInt($(this).find("div.hoverdiv").outerHeight());
+$(this).find("div.hoverdiv").css({"width":""+HoverW+"px","height":""+HoverH+"px"});
+$(this).find("div.zoomdiv div.plus").addClass("active");
+$(this).find("div.zoomdiv div.plus.active").stop().animate({marginLeft:"20px","marginRight":"20px","opacity":"0.5"},200);
+});	
+
+$("div.listeler div.liste div.list").mouseleave(function(){
+$(this).find("div.zoomdiv div.plus.active").removeClass("active");		
+$(this).find("div.zoomdiv div.plus").stop().animate({marginLeft:"-20px",marginRight:"40px","opacity":"0"},300);
+});
+
+
+}
+
+function filtre(){
+var kat=$("select#formkat").val();
+if(kat!=""){
+var url=document.URL
+yeniurl="";
+if(url.indexOf("/params/")>-1){	
+var urlParamsBol=url.split("/params/");
+var params=urlParamsBol[1];
+yeniurl=urlParamsBol[0]+"/params";
+var paramsBol=params.split("/");
+var seotext=""; if(paramsBol[paramsBol.length-1].indexOf(".html")){seotext=paramsBol[paramsBol.length-1];}
+var katexist=false;var sayfaexist=false;
+
+for (var i=0 ; i<paramsBol.length ; i++){
+if(paramsBol[i].indexOf(".html")>-1){break;}
+if(paramsBol[i].indexOf("-")>-1){
+var parambol=paramsBol[i].split("-");
+var param=parambol[0];
+var val=parambol[1];
+if(param=="kat"){val=kat;katexist=true;}
+if(param=="sayfa"){val=1;sayfaexist=true;}
+if(val!=""){yeniurl=yeniurl+"/"+param+"-"+val}
+}
+}
+if(katexist==false && kat!=""){yeniurl=yeniurl+"/kat-"+kat;} 
+if(sayfaexist==false){yeniurl=yeniurl+"/sayfa-1";}
+yeniurl=yeniurl+"/"+seotext;
+}else{
+if(kat!=""){yeniurl=url+"/kat-"+kat+"";}	
+yeniurl=url+"/params/sayfa-1";	
+}
+document.location.href=yeniurl;	
+}
+}
+
+function listefiltre(tip){
+var kat=$("select#formkat").val();	
+if(kat!=""){
+var url="/sayfalar/liste/params/tip-"+tip+"/kat-"+kat+"";
+}else{
+var url="/sayfalar/liste/params/tip-"+tip+"";	
+}
+document.location.href=url;	
+}
+
+</script><style>
+div.footer{
+	background-color:#333333;
+	position:relative;
+	z-index:3;
+	}
+	
+div.copyrightdiv{
+	color:#FFFFFF;
+	font-family:"exodemibold","Arial Black",Arial;
+	text-align:center;
+	margin-top:20px;
+	position:relative;
+	background-color:#333333;
+}	
+div.copyrightdiv div.copyright{
+color:#FFFFFF;
+opacity:0.4;
+margin-bottom:20px;	
+font-family:"exo",Arial;
+font-size:13px;
+}
+
+div.copyrightdiv div.footeraciklama{
+color:#FFFFFF;
+opacity:0.6;
+line-height:20px;
+font-size:15px;
+margin-bottom:20px;
+letter-spacing:0.9px;
+font-family:"exo",Arial;	
+}
+
+div.copyrightdiv div.firmalartext{
+	font-family:"exo",Arial;
+	line-height:11px;
+	color:#FFFFFF;
+	font-size:9px;
+	text-align:center;
+	background-image:url(img/genel/silik-siyah-opacity10.png);
+	padding:10px;
+	font-size:9px;
+	opacity:0.5;
+	}	
+
+div.copyrightdiv div.firmalar{
+	background-image:url(img/genel/silik-siyah-opacity10.png);
+	padding:10px 10px;
+	padding-bottom:5px;
+	}	
+div.copyrightdiv div.firmalar div.firma{
+	margin:0 5px;
+	}
+div.copyrightdiv div.firmalar div.firma:hover{
+	opacity:1;
+	}	
+div.copyrightdiv div.firmalar div.firma img{
+	height:22px;
+	width:auto;
+	filter: grayscale(100%);
+-webkit-filter: grayscale(100%); 
+	}
+div.copyrightdiv div.firmalar div.firma img:hover{
+	filter: grayscale(0%);
+-webkit-filter: grayscale(0%); 
+}	
+
+div.footer div.footerlinklerdiv{
+	position:relative;
+	}
+div.footer div.footerlinklerdiv div.back{
+	position:absolute;
+	left:0px;right:0px;bottom:0px;top:0px;
+	background-color:#000;
+	opacity:0.05;
+	z-index:1;
+	}
+div.footer div.linkler{
+	padding:20px 0 10px 0;
+	position:relative;
+	z-index:2;
+	}
+	
+div.footer div.linkler div.link{
+	position:relative;
+	margin:0 40px;
+	}
+
+div.footer div.linkler div.link div.anatext{
+	color:#FFFFFF;
+	font-family:"exodemibold","Arial Black",Arial;
+	font-size:15px;
+	margin-bottom:10px;
+	opacity:0.7;
+	display:none;
+	}
+div.footer div.linkler div.link div.anatext:hover{opacity:0.9;}		
+div.footer div.linkler div.link div.icon{}
+div.footer div.linkler div.link div.altlinkler{
+	position:relative;
+	}
+div.footer div.linkler div.link div.altlinkler div.altlink{
+	color:#FFFFFF;
+	font-family:"exo",Arial;
+	font-size:14px;
+	line-height:25px;
+	opacity:0.5;
+	}
+div.footer div.linkler div.link div.altlinkler div.altlink:hover{opacity:0.7;}
+
+div.footer div.alticonmenu{
+	padding:10px;
+	position:relative;
+	}
+div.footer div.alticonmenu div.menuler{
+	position:relative;
+	z-index:2;
+	}	
+div.footer div.alticonmenu div.menuler div.menu{
+	margin:0 7px;
+	padding:5px;
+	border-radius:5px;
+	overflow:hidden;
+	}
+div.footer div.alticonmenu div.menuler div.menu img{
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%); 
+width:auto;
+height:35px;
+}
+div.footer div.alticonmenu div.menuler div.menu:hover{
+	background-color:#fff;
+	}
+div.footer div.alticonmenu div.menuler div.menu:hover img{
+filter: grayscale(0%);
+-webkit-filter: grayscale(0%); 
+}
+
+div.footer div.alticonmenu div.back{
+	position:absolute;
+	top:0px;left:0px;right:0px;bottom:0px;
+	background-color:#000;
+	opacity:0.15;
+	z-index:1;
+	}	
+	
+div.footer div.footerhtml{
+	position:relative;
+	}	
+div.footer div.footerhtml div.icerik{}
+div.footer div.footerhtml div.back{
+	position:absolute;
+	top:0px;left:0px;right:0px;bottom:0px;
+	background-color:#fff;
+	opacity:0.1;
+	z-index:1;
+	}
+
+@media screen and (max-width:1024px){
+div.copyrightdiv{font-size:12px;}		
+	}	
+@media screen and (max-width:768px){}
+@media screen and (min-width:769px){}	
+@media screen and (max-width:480px){
+div.copyrightdiv{font-size:11px;}		
+div.copyrightdiv div.firmalartext{font-size:8px;}
+	}
+@media all and (orientation:portrait){}
+@media all and (orientation:landscape){}
+
+
+	
+	
+</style>
+<div class="footer scrollContent">
+
+<div class="footerhtml">
+<div class="icerik"></div>
+<div class="back"></div>
+</div>
+
+
+<!--start linkler-->
+
+<div class="footerlinklerdiv">
+<div class="fl linkler">
+
+<div id="analink25" class="fl link ">
+<a href="javascript:void(null)"><div class="fl icon"></div><div class="fl anatext">About</div><div class="cl"></div></a>
+
+
+<div class="altlinkler">
+
+<a href="sayfalar\sayfa\params\dil-en\tip-sayfa\id-11\profile.htm">
+<div class="altlink">
+<div class="alttext">About Us</div>
+</div></a>
+
+<a href="sayfalar\sayfa\params\dil-en\tip-sayfa\id-13\quality.htm">
+<div class="altlink">
+<div class="alttext">Quality</div>
+</div></a>
+
+
+
+<a href="sayfalar\sayfa\params\dil-en\tip-sayfa\id-10\disclaimer.htm">
+<div class="altlink">
+<div class="alttext">Disclaimer</div>
+</div></a>
+
+</div>
+
+</div>
+
+<div id="analink26" class="fl link ">
+<a href="javascript:void(null)"><div class="fl icon"></div><div class="fl anatext">Products - Services</div><div class="cl"></div></a>
+
+
+<div class="altlinkler">
+
+<a href="sayfalar\liste\params\tip-urun\urunler.htm">
+<div class="altlink">
+<div class="alttext">Activities</div>
+</div></a>
+
+<a href="sayfalar\liste\params\tip-hizmet\hizmetler.htm">
+<div class="altlink">
+<div class="alttext">Services</div>
+</div></a>
+
+
+
+</div>
+
+</div>
+
+<div class="cl"></div>
+</div>
+<div class="cl"></div>
+<div class="back"></div>
+</div>
+
+<!--end linkler-->
+
+
+<!--start alticonmenu-->
+
+<!--end alticonmenu-->
+
+<div class="fr footerlogo"></div>
+
+<div class="cl"></div>
+
+<div class="copyrightdiv">
+<div class="footeraciklama"></div>
+<div class="copyright">www.aca-achour.dz</div>
+<div class="cl"></div>
+<div class="firmalartext">All rights reserved by ACA © 2017</div>
+</div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+FirmaImageAyar();
+AltLinklerAyar();
+AltIkonMenuAyar();
+FooterKonumAyar();
+})
+
+$(window).load(function(){
+FirmaImageAyar();
+AltLinklerAyar();
+AltIkonMenuAyar();
+FooterKonumAyar();
+})
+
+$(window).resize(function(){
+FirmaImageAyar();
+AltLinklerAyar();
+AltIkonMenuAyar();
+FooterKonumAyar();
+});
+
+function FirmaImageAyar(){
+var FirmalarGenislik=parseInt($("div.copyrightdiv div.firmalar").outerWidth());
+var copyrightdivGenislik=parseInt($("div.copyrightdiv").outerWidth());
+var FirmalarTextMarginLeft=parseInt((copyrightdivGenislik-FirmalarGenislik)/2);	
+$("div.copyrightdiv div.firmalar").css({"margin-left":""+FirmalarTextMarginLeft+"px"});
+}
+
+function AltIkonMenuAyar(){
+var FooterGenislik=parseInt($("div.footer").outerWidth());
+var AltLinklerGenislik=parseInt($("div.footer div.linkler").outerWidth());
+var AltLinklerMarginLeft=parseInt((FooterGenislik-AltLinklerGenislik)/2);	
+$("div.footer div.linkler").css({"margin-left":""+AltLinklerMarginLeft+"px"});	
+}
+
+function AltLinklerAyar(){
+var FooterGenislik=parseInt($("div.footer").outerWidth());
+var AltLinklerGenislik=parseInt($("div.footer div.alticonmenu div.menuler").outerWidth());
+var AltLinklerMarginLeft=parseInt((FooterGenislik-AltLinklerGenislik)/2);	
+$("div.footer div.alticonmenu div.menuler").css({"margin-left":""+AltLinklerMarginLeft+"px"});
+}
+
+function FooterKonumAyar(){
+var footerOffset=parseInt($("div.footer").offset().top);
+var footerH=parseInt($("div.footer").outerHeight());
+var WH=parseInt($(window).height());
+var FooterBottomOffset=	footerOffset+footerH;
+if(FooterBottomOffset<WH){
+var FooterMT=WH-FooterBottomOffset;	
+$("div.footer").css({"margin-top":""+FooterMT+"px"});	
+}
+}
+
+
+
+</script>
+
+
+
+
+
+<style>
+div.bodyback{}
+@media screen and (max-width:768px){
+div.bodyback{}	
+}
+</style>
+
+<div class="bodyback"></div>
+
+</body>
+</html>

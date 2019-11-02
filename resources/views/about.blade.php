@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@section('title', 'A Propos')
 
 <section class="b-pageHeader">
 			<div class="container">
-				<h1 class="wow zoomInLeft" data-wow-delay="0.7s">About Us</h1>
+				<h1 class="wow zoomInLeft" data-wow-delay="0.7s">A Propos</h1>
 				<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
 					<h3>The Largest Auto Dealer Online</h3>
 				</div>
@@ -12,7 +13,7 @@
 
 		<div class="b-breadCumbs s-shadow">
 			<div class="container">
-				<a href="home.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="about.html" class="b-breadCumbs__page m-active">About Us</a>
+				<a href="home.html" class="b-breadCumbs__page">Accueil</a><span class="fa fa-angle-right"></span><a href="{{url('about')}}" class="b-breadCumbs__page m-active">A Propos</a>
 			</div>
 		</div><!--b-breadCumbs-->
 
@@ -22,15 +23,15 @@
 					<div class="col-sm-6 col-xs-12">
 						<div class="b-best__info">
 							<header class="s-lineDownLeft b-best__info-head">
-								<h2 class="wow zoomInUp" data-wow-delay="0.5s">The Best &amp; the Largest Auto Dealer</h2>
+								<h2 class="wow zoomInUp" data-wow-delay="0.5s">ACA Achour</h2>
 							</header>
-							<h6 class="wow zoomInUp" data-wow-delay="0.5s">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod etg tempor incididunt ut labore dolore magna aliqua. </h6>
-							<p class="wow zoomInUp" data-wow-delay="0.5s">Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam mus etern nunc. Nunc conseq sem velde metus imperdiet lacinia. Aenean vulputate. Donec vene natis leo curabitur at neque ut sapien fusce cursus dapibus ligula Lorem ipsum dolor sitter amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Uit enim ad minim veniami quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commod consequat. Duis aute irure dolor in reprehenderit.</p>
-							<a href="article.html" class="btn m-btn m-readMore wow zoomInUp" data-wow-delay="0.5s">view listings<span class="fa fa-angle-right"></span></a>
+							<h6 class="wow zoomInUp" data-wow-delay="0.5s">La société SARL A.C.A Achour Entreprises au capital de 105 000 000.00 DA, crée le 23 Mai 2011</h6>
+							<p class="wow zoomInUp" data-wow-delay="0.5s">dont l'implantaion sur le territoire ( Hammam Dalaa, M'sila, Eucaluptus, Laghouat) dont le siège social est situé cité El-hebal Local N° 03, Hammam Dalaa, M'sila, représentée par M. Achour Abderrazak dûment habilté en sa qulalité de Gérant elle fonctionne sous la forme d'une SARL régie par les lois et réglementations en vigeur en Algérie, ainsi que par les status de la société .</p>
+							<!--<a href="article.html" class="btn m-btn m-readMore wow zoomInUp" data-wow-delay="0.5s">view listings<span class="fa fa-angle-right"></span></a>-->
 						</div>
 					</div>
 					<div class="col-sm-6 col-xs-12">
-						<img class="img-responsive center-block wow zoomInUp" data-wow-delay="0.5s" alt="best" src="media/about/best.jpg" />
+						<img class="img-responsive center-block wow zoomInUp" data-wow-delay="0.5s" alt="best" src="/storage/about/office.jpg" />
 					</div>
 				</div>
 			</div>
@@ -38,40 +39,37 @@
 
 		<section class="b-what s-shadow m-home">
 			<div class="container">
-				<h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">CUSTOMERS ARE IMPORTANT FOR US</h3><br />
-				<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">WHAT WE OFFERS</h2>
+				<h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">LES CLIENTS SONT IMPORTANTS POUR NOUS</h3><br />
+				<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">NOUS OFFRONS</h2>
 				<div class="row">
 					<div class="col-sm-4 col-xs-12">
 						<div class="b-world__item wow zoomInLeft" data-wow-delay="0.5s">
-							<img class="img-responsive" src="media/370x200/wolks.jpg" alt="wolks" />
+							<img class="img-responsive" src="/storage/about/service-shipping.jpg" alt="wolks" />
 							<div class="b-world__item-val">
-								<span class="b-world__item-val-title">WE OFFER</span>
+								<span class="b-world__item-val-title">Nous offrons</span>
 							</div>
-							<h2>Low Prices, No Haggling</h2>
-							<p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
-								sem velde metus imperdiet lacinia.</p>
+							<h2>Transporteur routiers</h2>
+							<p>Transporteur routiers (Agrégats, Ciment et matériaux de constructions) (1er Transporteur de LAFARGE Algérie) et location d'engins.</p>
 						</div>
 					</div>
 					<div class="col-sm-4 col-xs-12">
 						<div class="b-world__item wow zoomInUp" data-wow-delay="0.5s">
-							<img class="img-responsive"  src="media/370x200/mazda.jpg" alt="mazda" />
+							<img class="img-responsive"  src="/storage/about/Webp.net-resizeimage (2).jpg" alt="mazda" />
 							<div class="b-world__item-val">
-								<span class="b-world__item-val-title">WE ARE THE</span>
+								<span class="b-world__item-val-title">NOUS SOMMES LES</span>
 							</div>
-							<h2>Largest Car Dealership</h2>
-							<p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
-								sem velde metus imp         erdiet lacinia.</p>
+							<h2>Distribiteur agrée IVAL (IVECO, New Holland Construction)</h2>
+							<p>Distribiteur agrée IVAL (IVECO, New Holland Construction), L'importation et la distrubution avec service aprés vente (Maintenance , Piéce de rechange).</p>
 						</div>
 					</div>
 					<div class="col-sm-4 col-xs-12">
 						<div class="b-world__item wow zoomInRight" data-wow-delay="0.5s">
-							<img class="img-responsive"  src="media/370x200/chevrolet.jpg" alt="chevrolet" />
+							<img class="img-responsive"  src="/storage/about/estate.jpg" alt="chevrolet" />
 							<div class="b-world__item-val">
-								<span class="b-world__item-val-title">OUR CUSTOMERS GET</span>
+								<span class="b-world__item-val-title">Nous offrons</span>
 							</div>
-							<h2>Multipoint Safety Check</h2>
-							<p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus et nunc. Nunc consequ
-								sem velde metus imp         erdiet lacinia.</p>
+							<h2>Promotion immobilière</h2>
+							<p>Construction, Réalisation, traveaux de sou-traitance et promotion immobilière..</p>
 						</div>
 					</div>
 				</div>
@@ -83,7 +81,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-xs-12">
 						<div class="b-more__why wow zoomInLeft" data-wow-delay="0.5s">
-							<h2 class="s-title">WHY CHOOSE US</h2>
+							<h2 class="s-title">POURQUOI NOUS CHOISIR</h2>
 							<p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus etyd nunc. Nunc consequsem velde metus imperdiet lacinia. Lorem ipsum dolor sit amet sed consectetur adipisicing elit sed do eiusmod.</p>
 							<ul class="s-list">
 								<li><span class="fa fa-check"></span>Donec facilisis velit eu est phasellus consequat quis nostrud</li>
@@ -97,7 +95,7 @@
 					</div>
 					<div class="col-sm-6 col-xs-12">
 						<div class="b-more__info wow zoomInRight" data-wow-delay="0.5s">
-							<h2 class="s-title">MORE INFO</h2>
+							<h2 class="s-title">PLUS D'INFORMATIONS</h2>
 							<div class="b-more__info-block">
 								<div class="b-more__info-block-title">Fair Price for Everyone<a class="j-more" href="#"><span class="fa fa-angle-left"></span></a></div>
 								<div class="b-more__info-block-inside j-inside">
@@ -127,8 +125,8 @@
 
 		<section class="b-personal s-shadow">
 			<div class="container">
-				<h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">the people you can trust ON</h3><br />
-				<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">OUR TEAM MEMBERS</h2>
+				<h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">LES PERSONNES SUR lesquelles vous pouvez avoir confiance</h3><br />
+				<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">NOTRE EQUIPE MEMBRES</h2>
 				<div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="4" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="4" data-items-desktop-small="3" data-items-tablet="2" data-items-tablet-small="2">
 					<div>
 						<div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">

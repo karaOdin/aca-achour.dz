@@ -7,10 +7,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ setting('site.title')}}</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/storage/favicon-16x16.png" />
 
-    <!-- Scripts -->
-    <script src="/{{ asset('js/app.js') }}" defer></script>
+
+    <title>{{ setting('site.title')}} | @yield('title') </title>
+
+   <!-- Scripts -->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
 
     <!-- Fonts -->
     
@@ -27,7 +34,8 @@
         <link rel="alternate stylesheet" type="text/css" href="/assets/switcher/css/color6.css" title="color6" media="all" />
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+            <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
 </head>
 <body class="m-index" data-scrolling-animations="true" data-equal-height=".b-auto__main-item">
 
@@ -82,13 +90,12 @@
         <nav class="b-nav">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3 col-xs-4">
+                    <div class="col-sm-2 col-xs-4">
                         <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
-                            <h3><a href="home.html">Auto<span>Club</span></a></h3>
-                            <h2><a href="home.html">AUTO DEALER TEMPLATE</a></h2>
+                            <img src="/storage/{{setting('site.logo')}}" width="36%" height="auto">
                         </div>
                     </div>
-                    <div class="col-sm-9 col-xs-8">
+                    <div class="col-sm-10 col-xs-8">
                         <div class="b-nav__list wow slideInRight" data-wow-delay="0.3s">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
@@ -104,12 +111,6 @@
                                         <a  href="/">Accueil</span></a>
                                         
                                     </li>
-                                    
-                                    <li><a href="{{url('about')}}">A Propos</a></li>
-                                    <li><a href="article.html">Services</a></li>
-                                    
-                                    <li><a href="{{route('products.index')}}">Shop</a></li>
-
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" data-toggle='dropdown' href="#">Activities <span class="fa fa-caret-down"></span></a>
                                         <ul class="dropdown-menu h-nav">
@@ -119,7 +120,13 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="/contact">Contact</a></li>
+                                    <li><a href="{{route('projects.index')}}">Promotion Immobilier</a></li>
+                                    <li><a href="{{url('about')}}">A Propos</a></li>
+                                    
+
+                                    
+
+                                    <li><a href="{{url('contact')}}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -127,6 +134,7 @@
                 </div>
             </div>
         </nav><!--b-nav-->
+
 
             @yield('content')
 
@@ -258,9 +266,9 @@
                     <div class="col-xs-4">
                         <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
                             <div class="b-nav__logo">
-                                <h3><a href="home.html">Auto<span>Club</span></a></h3>
+                                <img src="/storage/{{setting('site.logo')}}" width="45%">
                             </div>
-                            <p>&copy; 2019 Conçu par <a href="http://clickmarketing-dz.com">Click Marketing.</a> </p>
+                            <p> Tous les droits reservé  &copy; {{ now()->year }} <a href="https://aca-achour.dz/">ACA Achours.</a> </p>
                         </div>
                     </div>
                     <div class="col-xs-8">
@@ -275,14 +283,11 @@
                             </div>
                             <nav class="b-footer__content-nav">
                                 <ul>
-                                    <li><a href="home.html">Home</a></li>
-                                    <li><a href="404.html">Pages</a></li>
-                                    <li><a href="listings.html">Inventory</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="404.html">Services</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="listTable.html">Shop</a></li>
-                                    <li><a href="contacts.html">Contact</a></li>
+                                    <li><a href="/">Accueil</a></li>
+                                    <li><a href="{{route('projects.index')}}">Projets</a></li>
+                                    <li><a href="{{route('products.index')}}">Produits</a></li>
+                                    <li><a href="{{url('about')}}">A Propos</a></li>
+                                    <li><a href="{{url('contact')}}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>

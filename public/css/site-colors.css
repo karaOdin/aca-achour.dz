@@ -59,6 +59,14 @@ body{
 
 .b-nav__list ul li a{
     color:#555;
+    
+}
+
+@media screen and (min-width: 1980px) {
+  .b-nav__list ul li a{
+    
+    font-size:16px;
+    }
 }
 
 .b-nav__list ul li a span.fa{

@@ -17,9 +17,12 @@ class ProductController extends Controller
      */
     public function index()
     {
+         $productsAct = Activity::where('slug',request()->activity)->first();
          if (request()->activity) 
         {
-            $productsAct = Activity::where('slug',request()->activity)->first();
+           
+            
+            
 
             $categories = Category::with('activity')->whereHas('activity', function ($query)
             {
@@ -39,7 +42,8 @@ class ProductController extends Controller
         
         if (request()->category) 
         {
-
+            $productCat = Category::where('slug',request()->category)->first();
+            
             $products = Product::with('category')->whereHas('category', function ($query)
             {
                 $query->where('slug', request()->category);
@@ -56,8 +60,12 @@ class ProductController extends Controller
             $products = $products->sortByDesc('created_at');
         }
         
+        if(is_null($products))
+        {
+            App::abort(404);
+        }
         
-        return view('shop',compact('products','categories'));
+        return view('shop',compact('products','categories','productsAct','productCat'));
     }
 
     /**
@@ -89,16 +97,18 @@ class ProductController extends Controller
      */
     public function show($slug)
     {
-        $product = DB::table('categories')                        
+       /* $product = DB::table('categories')                        
                       ->join('products','products.category_id','=','categories.id')
                       ->where('products.slug',$slug)
-                      ->first();
+                      ->first();*/
+          $product = Product::where('slug','=',$slug)->firstOrFail();
+        session()->push('products.recently_viewed', $product->id);
 
         $mightAlsoLike = DB::table('categories')
                             ->join('products','products.category_id','=','categories.id')
                             ->where('products.slug','!=',$slug)
                             ->inRandomOrder()
-                            ->take(8)
+                            ->take(4)
                             ->get();
         if(is_null($product))
         {
