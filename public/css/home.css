@@ -740,7 +740,7 @@ a.m-langLink{
 
 /* Welcome */
 .b-welcome{
-  background:url(../images/backgrounds/audiBg.png) left top no-repeat;
+  background:url(/storage/about/audiBg.png) left top no-repeat;
   position: relative;
 }
 
@@ -1272,7 +1272,7 @@ a.m-langLink{
 
 /* Count */
 .b-count{
-    background: url(../images/backgrounds/count.png) right top no-repeat;
+    background: url(/storage/about/count.png) right top no-repeat;
     position: relative;
 }
 

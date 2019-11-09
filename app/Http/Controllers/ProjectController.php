@@ -61,9 +61,18 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $singlproject = Project::where('slug',$slug)->firstOrFail();
+
+        session()->push('projects.recently_viewed',$singlproject->id);
+
+        $mightalsolike = Project::where(
+            'slug','!=',$singlproject->slug)
+        ->orWhere('location','!=',$singlproject->location)
+        ->get();
+
+        return view('projectDetail',compact('singlproject','mightalsolike'));
     }
 
     /**

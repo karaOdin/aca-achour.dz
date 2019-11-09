@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Providers;
-
+use App\Product;
 use Illuminate\Support\ServiceProvider;
 
 class RecentlyViewedProductsViewComposer extends ServiceProvider
 {
+    
+    
     /**
      * Register services.
      *

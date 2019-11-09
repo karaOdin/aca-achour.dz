@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+@section('title', 'Contactez Nous')
+
+@if(session()->has('message'))
+      <script>
+
+
+            var type = "{{Session::get('alert-type','success')}}"
+            toastr.success("{{ Session::get('message') }}");
+      </script>
+    @endif
+    
 <section class="b-pageHeader">
 			<div class="container">
 				<h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Contactez nous</h1>
@@ -29,21 +40,22 @@
 							</header>
 							<p class=" wow zoomInUp" data-wow-delay="0.5s">Entrez vos commentaires à l'aide du formulaire ci-dessous et nos professionnels du service clientèle vous contacteront dans les meilleurs délais.</p>
 							<div id="success"></div>
-							<form id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
+							<form id="contactForm" action="{{url('contact')}}" method="post"  class="s-form wow zoomInUp" data-wow-delay="0.5s" enctype="multipart/form-data">
+								{{ csrf_field() }}
+
 								<div class="s-relative">
-									<select name="user-topic" id="user-topic" class="m-select">
-										<option value="Not select">SELECT A TOPIC</option>
-										<option value="Topic 1">TOPIC 1</option>
-										<option value="Topic 2">TOPIC 2</option>
-										<option value="Topic 3">TOPIC 3</option>
-										<option value="Topic 4">TOPIC 4</option>
+									<select name="topic" id="user-topic" class="m-select">
+										<option value="Not select">CHOISISSEZ UN SUJET</option>
+										<option value="Service Commercial">Service Commercial</option>
+										<option value="Support Téchnique">Support Téchnique</option>
+										<option value="Autre">Autre</option>
 									</select>
 									<span class="fa fa-caret-down"></span>
 								</div>
-								<input type="text" placeholder="VOTRE NOM" value="" name="user-name" id="user-name" />
-								<input type="text" placeholder="ADRESSE ÉLECTRONIQUE %" value="" name="user-email" id="user-email" />
-								<input type="text" placeholder="PHONE NO." value="" name="user-phone" id="user-phone" />
-								<textarea id="user-message" name="user-message" placeholder="COMMENTAIRES / SUGGESTIONS / COMMENTAIRES"></textarea>
+								<input type="text" placeholder="VOTRE NOM" value="" name="name" id="user-name" />
+								<input type="text" placeholder="ADRESSE ÉLECTRONIQUE %" value="" name="email" id="user-email" />
+								<input type="text" placeholder="PHONE NO." value="" name="phone" id="user-phone" />
+								<textarea id="user-message" name="message" placeholder="COMMENTAIRES / SUGGESTIONS / COMMENTAIRES"></textarea>
 								<button type="submit" class="btn m-btn">Envoyer maintenant<span class="fa fa-angle-right"></span></button>
 							</form>
 						</div>
