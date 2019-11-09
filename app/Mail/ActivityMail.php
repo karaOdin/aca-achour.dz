@@ -33,7 +33,7 @@ class ActivityMail extends Mailable
 
         return $this->subject($this->email->name)
                     ->from($this->email->email)
-                    ->to('nihatmahdi@gmail.com')
+                    ->to('contact@acachour.com')
                     ->view('email.ActivityMail');
     }
 }
